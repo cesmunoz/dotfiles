@@ -9,7 +9,7 @@ echo "";
 
 if [ ! -d "$HOME/dotfiles" ]; then
     echo "Cloning dotfiles to $HOME/dotfiles"
-    git clone git@github.com:cesmunoz/dotfiles.git $HOME/dotfiles
+    git clone https://github.com/cesmunoz/dotfiles.git $HOME/dotfiles
 else
     echo "$HOME/dotfiles found - Skipping clone repository"
 fi
