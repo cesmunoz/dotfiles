@@ -43,13 +43,13 @@ echo ""
 echo "Adding $current_os specific functionality..."
 if [ $current_os="Linux" ]; then
     echo "Update Libraries..."
-    apt-get update
+    sudo apt-get update
 
     echo "";
     echo "Checking ZSH..."
     if [ $current_os="Linux" ]; then
         echo "Install ZSH..."
-        apt-get install zsh -y
+        sudo apt-get install zsh -y
     fi
     
     echo "";
@@ -64,13 +64,16 @@ if [ $current_os="Linux" ]; then
         echo "Installing nvm..."
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
   
-        source .bashrc
+        source $HOME/.nvm/nvm.sh
     else
         echo "nvm installation found. Skipping..."
     fi
 
     if [ ! -x "$(command -v node)" ]; then
+        source $HOME/.nvm/nvm.sh
+        
         echo "Installing node..."
+        
         nvm install stable
         nvm alias default stable
         nvm use default
