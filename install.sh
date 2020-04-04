@@ -93,6 +93,7 @@ if [ $current_os="Linux" ]; then
     echo "Checking Z..."
     if [ ! -d "$HOME/z" ]; then 
         echo "Installing Z..."
+        cd
         git clone https://github.com/rupa/z.git
         chmod +x ~/z/z.sh
 
