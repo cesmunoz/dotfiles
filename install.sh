@@ -16,9 +16,9 @@ fi
 
 cd "$HOME/dotfiles"
 
-dotfiles=(".zshrc" ".bashrc" ".vimrc")
+dotfiles=(".zshrc" ".bashrc" ".vimrc" ".gitconfig")
 if [ $current_os == "MINGW64" ]; then
-    dotfiles=( ".bashrc-git" ".vimrc" )
+    dotfiles=( ".bashrc-git" ".vimrc" ".gitconfig" )
 fi
 
 echo "";
@@ -62,7 +62,8 @@ if [ $current_os="Linux" ]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended  
     fi
 
-    echo ""
+    echo "";
+    echo "Checking NVM..."
     if [ ! -d "$HOME/.nvm" ]; then 
         echo "Installing nvm..."
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
@@ -72,6 +73,8 @@ if [ $current_os="Linux" ]; then
         echo "nvm installation found. Skipping..."
     fi
 
+    echo "";
+    echo "Checking Node..."
     if [ ! -x "$(command -v node)" ]; then
         source $HOME/.nvm/nvm.sh
         
@@ -85,6 +88,19 @@ if [ $current_os="Linux" ]; then
     else
         echo "node found... skipping installation"
     fi
+
+    echo "";
+    echo "Checking Z..."
+    if [ ! -d "$HOME/z" ]; then 
+        echo "Installing Z..."
+        git clone https://github.com/rupa/z.git
+        chmod +x ~/z/z.sh
+
+        source $HOME/.bashrc
+    else
+        echo "Z found... skipping installation"
+    fi
+    
 fi
 
 echo ""
