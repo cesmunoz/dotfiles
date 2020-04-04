@@ -50,6 +50,9 @@ if [ $current_os="Linux" ]; then
     if [ $current_os="Linux" ]; then
         echo "Install ZSH..."
         sudo apt-get install zsh -y
+
+        echo "Setting Up ZSH as default shell"
+        chsh -s $(which zsh)
     fi
     
     echo "";
@@ -83,3 +86,8 @@ if [ $current_os="Linux" ]; then
         echo "node found... skipping installation"
     fi
 fi
+
+echo ""
+echo "Initial setup complete!"
+echo "run vim +PackUpdate"
+echo "restart console"

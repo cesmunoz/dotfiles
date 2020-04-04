@@ -97,3 +97,72 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+###### ALIAS & FUNCTIONS #####
+###### Exports #####
+export REPODIR="/mnt/c/repos"
+
+###### Alias #####
+
+# Moving Directories
+alias cdrive="cd /mnt/c"
+
+# List
+alias ls="ls --color=yes"
+alias lsl="ls -l --color=yes"
+alias lsa="ls -a"
+alias lsal="ls -al"
+
+# Basic Git
+alias gs="git status -s"
+alias ga="git add -A"
+alias gf="git fetch"
+alias gcm="git commit -m"
+
+# L
+alias jl='j --l'
+alias jr='j --r'
+alias js='j --s'
+
+# BASH
+alias reload=". .zshrc"
+
+###### Functions #####
+
+# Aws
+function workenv() {
+  echo "Change AWS Working environment to > $1"
+  rm ~/.aws/config
+  rm ~/.aws/credentials
+  cp ~/.aws/$1/config ~/.aws/config
+  cp ~/.aws/$1/credentials ~/.aws/credentials
+}
+
+# Repo
+function repoenv() {
+  echo "Change working directory to > $1"
+  cd $REPODIR/$1
+}
+
+# Serverless
+function invokesls() {
+  _PATH="$2"    
+  if [ -z "$_PATH" ]
+  then
+      echo "sls invoke local -f $1"
+      sls invoke local -f $1
+  else    
+      echo "sls invoke local -f $1 --path $2"
+      sls invoke local -f $1 --path $2
+  fi
+}
+
+# Deployment
+function lighthouse() {
+  echo "git push origin $1:/lighthouse/$1"
+  git push origin $1:lighthouse/$1
+}
+
+###### LOADING FILES #####
+[ -f ~/z/z.sh ] && source ~/z/z.sh

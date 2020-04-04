@@ -1,0 +1,22 @@
+[user]
+  name = Cesar Munoz
+[core]
+	autocrlf = false
+	eol = lf
+[alias]
+  s = status -s
+  cm = commit -m 
+  br = branch
+  sw = switch
+  swc = switch -c
+  f = fetch 
+  pu = push 
+  pl = pull
+  r = reset --hard
+  st = stash
+  la = "!git config -l | grep alias | cut -c 7-"
+  credential = config credential.helper store
+[color]
+  ui = auto
+[commit]
+  template = ~/dotfiles/.gitmessage.txt
