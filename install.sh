@@ -104,6 +104,11 @@ if [ $current_os="Linux" ]; then
     else
         echo "Z found... skipping installation"
     fi
+
+    echo "";
+    echo "Modification on mount C drive..."    
+    sudo umount /mnt/c
+    sudo mount -t drvfs C: /mnt/c -o metadata
     
 fi
 
