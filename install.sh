@@ -42,8 +42,11 @@ done
 echo ""
 echo "Adding $current_os specific functionality..."
 if [ $current_os="Linux" ]; then
-    echo "Update Libraries..."
+    echo "";
+    echo "Update Libraries y Git Version..."
+    sudo add-apt-repository -y ppa:git-core/ppa
     sudo apt-get update
+    sudo apt-get install git -y
 
     echo "";
     echo "Checking ZSH..."

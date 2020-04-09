@@ -15,8 +15,6 @@
   r = reset --hard
   st = stash
   la = "!git config -l | grep alias | cut -c 7-"
-  credential = config credential.helper store
+  cred = credential.helper 'cache --timeout=300'
 [color]
   ui = auto
-[commit]
-  template = ~/dotfiles/.gitmessage.txt
