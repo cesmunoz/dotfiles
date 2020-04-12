@@ -165,4 +165,4 @@ function lighthouse() {
 }
 
 ###### LOADING FILES #####
-source ~/z/z.sh
+source $HOME/z.sh

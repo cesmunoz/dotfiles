@@ -49,6 +49,20 @@ if [ $current_os="Linux" ]; then
     sudo apt-get install git -y
 
     echo "";
+    echo "Checking Z..."
+    if [ ! -d "$HOME/z" ]; then 
+        echo "Installing Z..."
+        cd
+        git clone https://github.com/rupa/z.git
+        cp $HOME/z/z.sh $HOME/z.sh
+        chmod +x $HOME/z.sh
+
+        source $HOME/.bashrc
+    else
+        echo "Z found... skipping installation"
+    fi
+
+    echo "";
     echo "Checking ZSH..."
     if [ $current_os="Linux" ]; then
         echo "Install ZSH..."
@@ -90,20 +104,7 @@ if [ $current_os="Linux" ]; then
         source $HOME/.bashrc
     else
         echo "node found... skipping installation"
-    fi
-
-    echo "";
-    echo "Checking Z..."
-    if [ ! -d "$HOME/z" ]; then 
-        echo "Installing Z..."
-        cd
-        git clone https://github.com/rupa/z.git
-        chmod +x ~/z/z.sh
-
-        source $HOME/.bashrc
-    else
-        echo "Z found... skipping installation"
-    fi
+    fi    
 
     echo "";
     echo "Modification on mount C drive..."    

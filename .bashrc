@@ -298,5 +298,5 @@ function lighthouse() {
 }
 
 ###### LOADING FILES #####
-[ -f ~/z/z.sh ] && source ~/z/z.sh
+source $HOME/z.sh
 
