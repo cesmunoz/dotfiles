@@ -6,39 +6,6 @@ set -e
 echo "Initializing dotfiles for a $current_os setup..."
 echo "";
 
-
-if [ ! -d "$HOME/dotfiles" ]; then
-    echo "Cloning dotfiles to $HOME/dotfiles"
-    git clone https://github.com/cesmunoz/dotfiles.git $HOME/dotfiles
-else
-    echo "$HOME/dotfiles found - Skipping clone repository"
-fi
-
-cd "$HOME/dotfiles"
-
-dotfiles=(".zshrc" ".bashrc" ".vimrc" ".gitconfig")
-if [ $current_os == "MINGW64" ]; then
-    dotfiles=( ".bashrc-git" ".vimrc" ".gitconfig" )
-fi
-
-echo "";
-echo "Symlink default dotfiles with backups..."
-for file in ${dotfiles[@]}; do
-    if [ -h $HOME/$file ]; then
-        echo "Skipping $HOME/$file since it is already a symlink..." 
-    else
-        if [ -f "$HOME/$file" ]; then
-            mv -v "$HOME/$file" "$HOME/$file.bak"
-        fi
-
-        if [ $file == ".bashrc-git" ]; then
-            ln -s "$HOME/dotfiles/$file" "$HOME/.bashrc"
-        else 
-            ln -s "$HOME/dotfiles/$file" "$HOME/$file"
-        fi        
-    fi  
-done
-
 echo ""
 echo "Adding $current_os specific functionality..."
 if [ $current_os="Linux" ]; then
@@ -56,6 +23,8 @@ if [ $current_os="Linux" ]; then
         git clone https://github.com/rupa/z.git
         cp $HOME/z/z.sh $HOME/z.sh
         chmod +x $HOME/z.sh
+        
+        rm -rf $HOME/z
 
         source $HOME/.bashrc
     else
@@ -112,6 +81,40 @@ if [ $current_os="Linux" ]; then
     sudo mount -t drvfs C: /mnt/c -o metadata
     
 fi
+
+echo ""
+echo "Adding dotfiles..."
+if [ ! -d "$HOME/dotfiles" ]; then
+    echo "Cloning dotfiles to $HOME/dotfiles"
+    git clone https://github.com/cesmunoz/dotfiles.git $HOME/dotfiles
+else
+    echo "$HOME/dotfiles found - Skipping clone repository"
+fi
+
+cd "$HOME/dotfiles"
+
+dotfiles=(".zshrc" ".bashrc" ".vimrc" ".gitconfig")
+if [ $current_os == "MINGW64" ]; then
+    dotfiles=( ".bashrc-git" ".vimrc" ".gitconfig" )
+fi
+
+echo "";
+echo "Symlink default dotfiles with backups..."
+for file in ${dotfiles[@]}; do
+    if [ -h $HOME/$file ]; then
+        echo "Skipping $HOME/$file since it is already a symlink..." 
+    else
+        if [ -f "$HOME/$file" ]; then
+            mv -v "$HOME/$file" "$HOME/$file.bak"
+        fi
+
+        if [ $file == ".bashrc-git" ]; then
+            ln -s "$HOME/dotfiles/$file" "$HOME/.bashrc"
+        else 
+            ln -s "$HOME/dotfiles/$file" "$HOME/$file"
+        fi        
+    fi  
+done
 
 echo ""
 echo "Initial setup complete!"
