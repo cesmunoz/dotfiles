@@ -1,5 +1,6 @@
 [user]
   name = Cesar Munoz
+	email = Cesar Munoz
 [core]
 	autocrlf = false
 	eol = lf
