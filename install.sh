@@ -14,6 +14,7 @@ if [ $current_os="Linux" ]; then
     sudo add-apt-repository -y ppa:git-core/ppa
     sudo apt-get update
     sudo apt-get install git -y
+    sudo apt-get install awscli -y
 
     echo "";
     echo "Checking Z..."
