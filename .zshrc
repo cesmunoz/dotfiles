@@ -165,4 +165,5 @@ function lighthouse() {
 }
 
 ###### LOADING FILES #####
+source $HOME/.nvm/nvm.sh
 source $HOME/z.sh
