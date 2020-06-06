@@ -27,22 +27,22 @@ if [ "$current_os" = "Darwin" ]; then
         echo "Z found... skipping installation"
     fi
 
-    # echo "";
-    # echo "Checking ZSH..."
-    # if [ ! -f "$HOME/.zshrc"  ]; then
-    #     echo "Install ZSH..."
-    #     brew install zsh
+    echo "";
+    echo "Checking ZSH..."
+    if [ ! -f "$HOME/.zshrc"  ]; then
+        echo "Install ZSH..."
+        brew install zsh
 
-    #     echo "Setting Up ZSH as default shell"
-    #     chsh -s $(which zsh)
-    # fi
+        echo "Setting Up ZSH as default shell"
+        chsh -s /bin/zsh
+    fi
     
-    # echo "";
-    # echo "Checking oh-my-zsh..."
-    # if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    #     echo "Installing oh-my-zsh"
-    #     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended  
-    # fi
+    echo "";
+    echo "Checking oh-my-zsh..."
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        echo "Installing oh-my-zsh"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended  
+    fi
 
     echo "";
     echo "Checking NVM..."
