@@ -31,7 +31,7 @@ if [ "$current_os" = "Darwin" ]; then
     echo "Checking ZSH..."
     if [ ! -f "$HOME/.zshrc"  ]; then
         echo "Install ZSH..."
-        sudo apt-get install zsh -y
+        brew install zsh
 
         echo "Setting Up ZSH as default shell"
         chsh -s $(which zsh)
@@ -65,8 +65,6 @@ if [ "$current_os" = "Darwin" ]; then
         nvm install stable
         nvm alias default stable
         nvm use default
-
-        source $HOME/.bashrc
     else
         echo "node found... skipping installation"
     fi    
