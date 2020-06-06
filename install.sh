@@ -24,7 +24,7 @@ if [ "$current_os" = "Darwin" ]; then
         
         rm -rf $HOME/z
 
-        source $HOME/.bashrc
+        #source $HOME/.bashrc
     else
         echo "Z found... skipping installation"
     fi
