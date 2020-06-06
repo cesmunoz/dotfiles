@@ -181,13 +181,6 @@ function invokesls() {
   fi
 }
 
-# Deployment
-function lighthouse() {
-  echo "git push origin $1:/lighthouse/$1"
-  git push origin $1:lighthouse/$1
-}
-
-__git_complete lighthouse _git_checkout
 
 ###### BASH CUSTOMIZATION #####
 Reset=$(tput sgr0)

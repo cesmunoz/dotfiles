@@ -158,12 +158,6 @@ function invokesls() {
   fi
 }
 
-# Deployment
-function lighthouse() {
-  echo "git push origin $1:/lighthouse/$1"
-  git push origin $1:lighthouse/$1
-}
-
 ###### LOADING FILES #####
 source $HOME/.nvm/nvm.sh
 source $HOME/z.sh
