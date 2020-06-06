@@ -23,8 +23,6 @@ if [ "$current_os" = "Darwin" ]; then
         chmod +x $HOME/z.sh
         
         rm -rf $HOME/z
-
-        #source $HOME/.bashrc
     else
         echo "Z found... skipping installation"
     fi
