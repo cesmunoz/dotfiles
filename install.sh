@@ -162,6 +162,9 @@ dotfiles=(".zshrc" ".bashrc" ".vimrc" ".gitconfig")
 if [ $current_os == "MINGW64" ]; then
     dotfiles=( ".bashrc-git" ".vimrc" ".gitconfig" )
 fi
+if [ $current_os == "MINGW64" ]; then
+    dotfiles=( ".zshrc" ".vimrc" ".gitconfig" )
+fi
 
 echo "";
 echo "Symlink default dotfiles with backups..."
