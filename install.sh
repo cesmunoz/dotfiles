@@ -27,15 +27,15 @@ if [ "$current_os" = "Darwin" ]; then
         echo "Z found... skipping installation"
     fi
 
-    echo "";
-    echo "Checking ZSH..."
-    if [ ! -f "$HOME/.zshrc"  ]; then
-        echo "Install ZSH..."
-        brew install zsh
+    # echo "";
+    # echo "Checking ZSH..."
+    # if [ ! -f "$HOME/.zshrc"  ]; then
+    #     echo "Install ZSH..."
+    #     brew install zsh
 
-        echo "Setting Up ZSH as default shell"
-        chsh -s $(which zsh)
-    fi
+    #     echo "Setting Up ZSH as default shell"
+    #     chsh -s $(which zsh)
+    # fi
     
     # echo "";
     # echo "Checking oh-my-zsh..."
