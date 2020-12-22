@@ -47,14 +47,6 @@ dash vlc discord obs zoomus spotify slack cakebrew grammarly notion telegram che
 insomnia postman docker iterm2 lastpass whatsapp opera rectangle transmission mysqlworkbench \
 streamlabs-obs 
 
-echo "Generating an RSA token for GitHub"
-mkdir -p ~/.ssh
-touch ~/.ssh/config
-ssh-keygen -t rsa -b 4096 -C "cesar.alberto.munoz@gmail.com"
-echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
-eval "$(ssh-agent -s)"
-echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
-
 echo "cloning dotfiles"
 git clone git@github.com:cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
 ln -s "${HOME}/repos/cm/dotfiles/.zshrc" "${HOME}/.zshrc"
@@ -867,6 +859,7 @@ echo "Done. Note that some of these changes require a logout/restart to take eff
 
 
 printf "TODO:\n\
+generate github keys\n\
 install: \n\
   battery indicator (App Store) \n\
   Gifski (App Store) \n\
