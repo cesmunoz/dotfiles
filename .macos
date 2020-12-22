@@ -48,7 +48,7 @@ insomnia postman docker iterm2 lastpass whatsapp opera rectangle transmission my
 streamlabs-obs 
 
 echo "cloning dotfiles"
-git clone git@github.com:cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
+git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
 ln -s "${HOME}/repos/cm/dotfiles/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/repos/cm/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -s "${HOME}/repos/cm/dotfiles/.gitconfig" "${HOME}/.gitconfig"
@@ -59,6 +59,18 @@ mkdir -p "${HOME}/.config/bat/themes"
 ln -s "${HOME}/dotfiles/.config/bat/config" "${HOME}/.config/bat/config"
 git clone https://github.com/batpigandme/night-owlish "${HOME}/.config/bat/themes/night-owlish"
 bat cache --build
+
+# Z AutoJampp
+echo "Installing Z..."
+cd ~
+git clone https://github.com/rupa/z.git
+cp $HOME/z/z.sh $HOME/z.sh
+chmod +x $HOME/z.sh
+rm -rf $HOME/z
+
+# OhMyZsh
+echo "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended  
 
 echo "making system modifications:"
 
