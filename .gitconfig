@@ -1,21 +1,64 @@
 [user]
   name = Cesar Munoz
 	email = Cesar Munoz
+
+[includeif "gitdir:~/repos/cm/"]
+  path = "~/.gitconfigs/.cm"
+[includeif "gitdir:~/repos/jampp/"]
+  path = "~/.gitconfigs/.jampp"
+[includeif "gitdir:~/repos/morean"]
+  path = "~/.gitconfigs/.morean"
+
+[pull]
+  rebase = true
+[branch]
+  autosetuprebase = true
+[push]
+  default = current
 [core]
 	autocrlf = false
-	eol = lf
+	eol = lf  
+  pager = delta --theme="night-owlish"
+[interactive]
+    diffFilter = delta --color-only
+[init]
+	defaultBranch = main
 [alias]
-  s = status -s
+  rh = reset --hard HEAD
+  r = reset --hard
+  ca = commit -a --verbose
   cm = commit -m 
+  cp = cherry pick
+  co = checkout
+  b = checkout -b
+  amend = commit -a --amend --no-edit
+  unstage = reset --soft HEAD
+  cdiff = "!git diff $1 $1 ^"
   br = branch
+  s = status -s
   sw = switch
   swc = switch -c
   f = fetch 
   pu = push 
   pl = pull
-  r = reset --hard
   st = stash
+  stsu = stash save -u
   la = "!git config -l | grep alias | cut -c 7-"
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  branches = branch --all
   cred = config credential.helper 'cache --timeout=300'
+  whoami = config user.email
 [color]
-  ui = auto
+  ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
