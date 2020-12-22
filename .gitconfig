@@ -9,8 +9,10 @@
   path = "~/.gitconfigs/.morean"
 [pull]
   rebase = true
-[branch]
-  autosetuprebase = true
+
+# [branch]
+#  autosetuprebase = true
+
 [push]
   default = current
 [core]
