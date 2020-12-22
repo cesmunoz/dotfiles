@@ -188,6 +188,8 @@ function quit () {
   fi
 }
 
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin" 
+
 ###### LOADING FILES #####
 source $HOME/.nvm/nvm.sh
 source $HOME/z.sh
