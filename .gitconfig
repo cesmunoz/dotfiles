@@ -1,14 +1,12 @@
 [user]
   name = Cesar Munoz
-	email = Cesar Munoz
-
+  email = Cesar Munoz
 [includeif "gitdir:~/repos/cm/"]
   path = "~/.gitconfigs/.cm"
 [includeif "gitdir:~/repos/jampp/"]
   path = "~/.gitconfigs/.jampp"
 [includeif "gitdir:~/repos/morean"]
   path = "~/.gitconfigs/.morean"
-
 [pull]
   rebase = true
 [branch]
@@ -16,13 +14,13 @@
 [push]
   default = current
 [core]
-	autocrlf = false
-	eol = lf  
+  autocrlf = false
+  eol = lf
   pager = delta --theme="night-owlish"
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [alias]
   rh = reset --hard HEAD
   r = reset --hard
@@ -51,14 +49,14 @@
 [color]
   ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 [color "diff"]
-	meta = 11
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = 11
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
