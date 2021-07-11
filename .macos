@@ -106,11 +106,8 @@ install: \n\
   ObinsKit \n\
   Logi Options \n\
 \n\
-login items: \n\
-  Raycast \n\
-  Rectangle \n\
-\n\
 Restart Terminal.app\n\
 copy gitconfigs \n\
+Set Iterm2 default natural text editing \n\
 login to literally everything \n\
 "
