@@ -50,6 +50,10 @@ zoom spotify slack cakebrew grammarly notion insomnia postman docker iterm2 what
 
 # Dot Files
 echo "cloning dotfiles"
+rm .zshrc
+rm .gitignore_global
+rm .gitconfig
+rm .vimrc
 git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
 ln -s "${HOME}/repos/cm/dotfiles/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/repos/cm/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
