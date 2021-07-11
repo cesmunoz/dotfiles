@@ -1,78 +1,48 @@
-export ZSH="/home/cesmunoz/.oh-my-zsh"
-
-ZSH_THEME="robbyrussell"
-
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+###### PROMPT ######
 
-######  FUNCTIONS #####
+export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=Fafacxdxbxegedabagacad
 
-# Git
+BLACK=$(tput setaf 0);
+RED=$(tput setaf 1);
+GREEN=$(tput setaf 2);
+YELLOW=$(tput setaf 3);
+BLUE=$(tput setaf 4);
+MAGENT=$(tput setaf 5);
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7);
+RESET=$(tput sgr0);
+
+
 function git_branch {
   # Shows the current branch if in a git repository
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \(\1\)/';
 }
 
-# Aws
-function workenv() {
-  echo "Change AWS Working environment to > $1"
-  rm ~/.aws/config
-  rm ~/.aws/credentials
-  cp ~/.aws/$1/config ~/.aws/config
-  cp ~/.aws/$1/credentials ~/.aws/credentials
-}
-
-# Serverless
-function invokesls() {
-  _PATH="$2"    
-  if [ -z "$_PATH" ]
-  then
-      echo "sls invoke local -f $1"
-      sls invoke local -f $1
-  else    
-      echo "sls invoke local -f $1 --path $2"
-      sls invoke local -f $1 --path $2
-  fi
-}
-
-# Usefull
-function random_element {
-  declare -a array=("$@")
-  r=$((RANDOM % ${#array[@]}))
-  printf "%s\n" "${array[$r]}"
-}
-
-# Prompt
-setEmoji () {
-  EMOJI="$*"
+newPrompt () {
   DISPLAY_DIR='$(dirs)'
   DISPLAY_BRANCH='$(git_branch)'
-  PROMPT="${YELLOW}${DISPLAY_DIR}${GREEN}${DISPLAY_BRANCH}${RESET} ${EMOJI}"$'\n'"$ ";
+  PROMPT="%B${GREEN}➜%b ${YELLOW}${DISPLAY_DIR}%B${CYAN}${DISPLAY_BRANCH}%b${RESET} "$'\n'"$ ";
+  #PROMPT="${GREEN}➜ ${YELLOW}${DISPLAY_DIR}${GREEN}${DISPLAY_BRANCH}${RESET} $ "
 }
 
-newRandomEmoji () {
-  setEmoji "$(random_element 😅 👽 🔥 🚀 👻 ⛄ 👾 🍔 😄 🍰 🐑 😎 🏎 🤖 😇 😼 💪 🦄 🥓 🌮 🎉 💯 ⚛️ 🐠 🐳 🐿 🥳 🤩 🤯 🤠 👨‍💻 🦸‍ 🧝‍ 🧞‍ 🧙‍ 👨‍🚀 👨‍🔬 🕺 🦁 🐶 🐵 🐻 🦊 🐙 🦎 🦖 🦕 🦍 🦈 🐊 🦂 🐍 🐢 🐘 🐉 🦚 ✨ ☄️ ⚡️ 💥 💫 🧬 🔮 ⚗️ 🎊 🔭 ⚪️ 🔱)"
-}
+newPrompt
 
-alias jestify="PS1=\"🃏\"$'\n'\"$ \"";
-alias testinglibify="PS1=\"🐙\"$'\n'\"$ \"";
-alias cypressify="PS1=\"🌀\"$'\n'\"$ \"";
-alias staticify="PS1=\"🚀\"$'\n'\"$ \"";
-alias nodeify="PS1=\"💥\"$'\n'\"$ \"";
-alias reactify="PS1=\"⚛️\"$'\n'\"$ \"";
-alias harryify="PS1=\"🧙‍\"$'\n'\"$ \"";
-
-# allow substitution in PS1
-setopt promptsubst
+###### SHELL ######
 
 # history size
 HISTSIZE=5000
 HISTFILESIZE=10000
-
 SAVEHIST=5000
 setopt EXTENDED_HISTORY
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+
+# allow substitution in PS1
+setopt promptsubst
+
 # share history across multiple zsh sessions
 setopt SHARE_HISTORY
 # append to history
@@ -82,41 +52,17 @@ setopt INC_APPEND_HISTORY
 # do not store duplications
 setopt HIST_IGNORE_DUPS
 
-# PATH ALTERATIONS
-## Node
-PATH="/usr/local/bin:$PATH:./node_modules/.bin";
-
-## Yarn
-# PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-alias yarn="echo update the PATH in ~/.zshrc"
-
-# Custom bins
-PATH="$PATH:$HOME/.bin";
-# dotfile bins
-PATH="$PATH:$HOME/.my_bin";
-
-# CDPATH ALTERATIONS
-CDPATH=.:$HOME:$HOME/code:$HOME/code/epic-react:$HOME/code/testingjavascript:$HOME/Desktop
-# CDPATH=($HOME $HOME/code $HOME/Desktop)
-
-# disable https://scarf.sh/
-SCARF_ANALYTICS=false
-
-###### Alias #####
-
-# VSCode
-alias code="\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\""
-function c { code ${@:-.} }
+###### ALIAS ######
 
 # Move between directories
 alias ..="cd ../";
 alias ..l="cd ../ && ll";
 alias de="cd ~/Desktop";
-alias d="cd ~/code";
+alias d="cd ~/repos";
 
 # List
-alias ls="ls --color=yes"
-alias lsl="ls -l --color=yes"
+alias ls="ls"
+alias lsl="ls -l"
 alias lsa="ls -a"
 alias lsal="ls -al"
 alias ll="ls -1a";
@@ -127,7 +73,7 @@ alias cz="code ~/.zshrc";
 
 # BASH
 alias sz="source ~/.zshrc";
-alias reload=". .zshrc"
+alias reload="source ~/.zshrc"
 
 # Finder
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
@@ -170,7 +116,37 @@ alias yav="yarn run validate";
 alias yoff="yarn add --offline";
 alias ypm="echo \"Installing deps without lockfile and ignoring engines\" && yarn install --no-lockfile --ignore-engines"
 
-# Custom functions
+## AWS
+alias awswhoami="aws sts get-caller-identity";
+
+
+###### CUSTOM FUNCTIONS ######
+
+# Aws
+function workenv() {
+  echo "Change AWS Working environment to > $1"
+  rm ~/.aws/config
+  rm ~/.aws/credentials
+  cp ~/.aws/$1/config ~/.aws/config
+  cp ~/.aws/$1/credentials ~/.aws/credentials
+}
+
+# Serverless
+function invokesls() {
+  _PATH="$2"    
+  if [ -z "$_PATH" ]
+  then
+      echo "sls invoke local -f $1 --stage local"
+      sls invoke local -f $1 --stage local
+  else    
+      echo "sls invoke local -f $1 --path $2 --stage local"
+      sls invoke local -f $1 --path $2 --stage local
+  fi
+}
+
+# VSCode
+function c { code ${@:-.} }
+
 mg () { mkdir "$@" && cd "$@" || exit; }
 cdl() { cd "$@" && ll; }
 npm-latest() { npm info "$1" | grep latest; }
@@ -186,8 +162,15 @@ function quit () {
   fi
 }
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin" 
+###### CONFIG CLI APPS ###### 
 
-###### LOADING FILES #####
-source $HOME/.nvm/nvm.sh
+# N
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Z
 source $HOME/z.sh
