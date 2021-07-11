@@ -5,8 +5,6 @@
   path = "~/.gitconfigs/.cm"
 [includeif "gitdir:~/repos/jampp/"]
   path = "~/.gitconfigs/.jampp"
-[includeif "gitdir:~/repos/morean"]
-  path = "~/.gitconfigs/.morean"
 [includeif "gitdir:~/repos/neurocann"]
   path = "~/.gitconfigs/.neurocann"
 
