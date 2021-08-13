@@ -70,6 +70,7 @@ alias ll="ls -1a";
 # Zshrc
 alias vz="vim ~/.zshrc";
 alias cz="code ~/.zshrc";
+alias nz="vim ~/.config/nvim/init.vim"
 
 # BASH
 alias sz="source ~/.zshrc";

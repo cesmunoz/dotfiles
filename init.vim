@@ -20,7 +20,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 set background=dark
-colorscheme dracula
+colorscheme gruvbox
 
 let NERDTreeShowHidden=1
 
