@@ -119,6 +119,9 @@ alias ypm="echo \"Installing deps without lockfile and ignoring engines\" && yar
 ## AWS
 alias awswhoami="aws sts get-caller-identity";
 
+# Neovim
+alias vim="nvim"
+alias oldvim="\vim"
 
 ###### CUSTOM FUNCTIONS ######
 
@@ -162,6 +165,10 @@ function quit () {
   fi
 }
 
+# Presto
+alias presto-connect=". ${HOME}/work/jampp/scripts/connect-presto.sh";
+alias presto-csv=". ${HOME}/work/jampp/scripts/query-csv.sh";
+
 ###### CONFIG CLI APPS ###### 
 
 # N
@@ -174,3 +181,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Z
 source $HOME/z.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

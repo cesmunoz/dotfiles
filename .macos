@@ -46,7 +46,16 @@ npm install --global serve fkill-cli npm-quick-run semantic-release-cli npm-chec
 echo "installing apps with brew cask"
 brew install --cask google-chrome firefox brave-browser itsycal visual-studio-code vlc \
 zoom spotify slack cakebrew grammarly notion insomnia postman docker iterm2 whatsapp rectangle \
-1password tableplus sourcetree sequel-ace raycast cleanmymac
+1password tableplus sourcetree sequel-ace raycast cleanmymac gh github neovim
+
+# Brew fonts
+echo "installing fonts"
+brew tap homebrew/cask-fonts
+brew install --cask font-cascadia-code
+brew install --cask font-cascadia-code-pl
+brew install --cask font-cascadia-mono
+brew install --cask font-cascadia-mono-pl
+brew install --cask font-fira-code
 
 # Dot Files
 echo "cloning dotfiles"
@@ -59,6 +68,8 @@ ln -s "${HOME}/repos/cm/dotfiles/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/repos/cm/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -s "${HOME}/repos/cm/dotfiles/.gitconfig" "${HOME}/.gitconfig"
 ln -s "${HOME}/repos/cm/dotfiles/.vimrc" "${HOME}/.vimrc"
+ln -s "${HOME}/repos/cm/dotfiles/.init.vim" "${HOME}/.config/nvim/.init.vim"
+ln -s "${HOME}/repos/cm/dotfiles/coc-settings.json" "${HOME}/.config/nvim/coc-settings.json" 
 
 # Z Jump Around
 echo "Installing Z"
@@ -72,10 +83,15 @@ rm -rf $HOME/z
 # MAC OS                                                                      #
 ###############################################################################
 
+##########################################
+# UI      
+##########################################
 
-###############################################################################
-# Finder                                                                      #
-###############################################################################
+defaults write com.apple.menuextra.battery ShowPercent YES
+
+##########################################
+# Finder      
+##########################################
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
