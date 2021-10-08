@@ -171,7 +171,7 @@ alias ll="ls -1a";
 # Zshrc
 alias vz="vim ~/.zshrc";
 alias cz="code ~/.zshrc";
-alias nz="vim ~/.config/nvim/init.vim"
+alias vinit="vim ~/.config/nvim/init.vim"
 
 # BASH
 alias sz="source ~/.zshrc";
@@ -285,3 +285,7 @@ export NVM_DIR="$HOME/.nvm"
 source $HOME/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
