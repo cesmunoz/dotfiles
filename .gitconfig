@@ -3,10 +3,6 @@
   email = Cesar Munoz
 [includeif "gitdir:~/repos/cm/"]
   path = "~/.gitconfigs/.cm"
-[includeif "gitdir:~/repos/jampp/"]
-  path = "~/.gitconfigs/.jampp"
-[includeif "gitdir:~/repos/neurocann"]
-  path = "~/.gitconfigs/.neurocann"
 
 [pull]
   rebase = true
