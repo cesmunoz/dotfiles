@@ -26,6 +26,10 @@ mkdir -p "${HOME}/repos"
 echo "installing homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# Oh My Zsh
+echo "installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 # Brew stuff
 echo "brew installing stuff"
 brew install git cask nvm awscli
