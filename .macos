@@ -32,7 +32,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Brew stuff
 echo "brew installing stuff"
-brew install git cask nvm awscli neovim
+brew install git cask neovim nvm awscli neovim
 
 # N (node version installer)
 echo "installing node (via n-install)"
