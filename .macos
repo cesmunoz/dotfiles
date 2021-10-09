@@ -50,7 +50,7 @@ npm install --global serve fkill-cli npm-quick-run semantic-release-cli npm-chec
 echo "installing apps with brew cask"
 brew install --cask google-chrome firefox brave-browser itsycal visual-studio-code vlc \
 zoom spotify slack cakebrew grammarly notion postman docker iterm2 whatsapp rectangle \
-1password sourcetree raycast gh github neovim
+1password sourcetree raycast github neovim
 
 # Brew fonts
 echo "installing fonts"
