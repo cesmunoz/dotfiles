@@ -45,8 +45,8 @@ npm install --global serve fkill-cli npm-quick-run semantic-release-cli npm-chec
 # Brew Cask
 echo "installing apps with brew cask"
 brew install --cask google-chrome firefox brave-browser itsycal visual-studio-code vlc \
-zoom spotify slack cakebrew grammarly notion insomnia postman docker iterm2 whatsapp rectangle \
-1password tableplus sourcetree sequel-ace raycast cleanmymac gh github neovim
+zoom spotify slack cakebrew grammarly notion postman docker iterm2 whatsapp rectangle \
+1password sourcetree raycast gh github neovim
 
 # Brew fonts
 echo "installing fonts"
@@ -112,6 +112,9 @@ defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desk
 
 printf "TODO:\n\
 install: \n\
+  Padbury Clock \n\
+  ICUE \n\
+  Kap \n\
   Configurador FNMT \n\
   Autofirma \n\
   World Clock \n\
@@ -121,6 +124,16 @@ install: \n\
   Stream Deck \n\
   ObinsKit \n\
   Logi Options \n\
+  Discord \n\
+  Asana \n\
+  Universal Control \n\
+  Kindle
+  Microsoft TODO \n\
+  Toggle Track \n\
+  Text Mate \n\
+  Keka \n\
+  Amphetamine \n\
+  World Clock \n\
 \n\
 Restart Terminal.app\n\
 copy gitconfigs \n\
