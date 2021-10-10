@@ -32,7 +32,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Brew stuff
 echo "brew installing stuff"
-brew install git cask neovim nvm awscli neovim
+brew install git cask nvm awscli neovim
 
 # N (node version installer)
 echo "installing node (via n-install)"
@@ -88,12 +88,6 @@ rm -rf $HOME/z
 ###############################################################################
 
 ##########################################
-# UI      
-##########################################
-
-defaults write com.apple.menuextra.battery ShowPercent YES
-
-##########################################
 # Finder      
 ##########################################
 # Finder: show all filename extensions
@@ -110,11 +104,33 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
+
+##########################################
+# Kill affected applications
+##########################################
+for app in "Activity Monitor" \
+  "Address Book" \
+  "Calendar" \
+  "cfprefsd" \
+  "Contacts" \
+  "Dock" \
+  "Finder" \
+  "Mail" \
+  "Messages" \
+  "Photos" \
+  "Safari" \
+  "SystemUIServer" \
+  "iCal"; do
+  killall "${app}" &> /dev/null
+done
+
 ###############################################################################
 # Custome Message                                                             #
 ###############################################################################
 
 printf "TODO:\n\
+modifications: \n\
+  Dock Menu & Bar > Battery > Show Percentage \n\
 install: \n\
   Padbury Clock \n\
   ICUE \n\
