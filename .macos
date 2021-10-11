@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
+# Colors
+YELLOW=$(tput setaf 3);
+RESET=$(tput sgr0);
 
-# ~/.macos — Check And bring all the exact configurations you need from https://mths.be/macos
+function log() {
+  echo "${GREEN}${PREFIX} $1${RESET}"
+}
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -12,106 +17,26 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-###############################################################################
-# Cesmunoz's Customizations                                                   #
-###############################################################################
-
-echo "Hello $(whoami)! Let's get you set up."
-
-# Repo Folder
-echo "mkdir -p ${HOME}/repos"
-mkdir -p "${HOME}/repos"
-
-# Homebrew
-echo "installing homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# Oh My Zsh
-echo "installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-# Brew stuff
-echo "brew installing stuff"
-brew install git cask nvm awscli neovim
-
-# N (node version installer)
-echo "installing node (via n-install)"
-curl -L https://git.io/n-install | bash
-
-# Checking Node Version
-echo "node --version: $(node --version)"
-echo "npm --version: $(npm --version)"
-
-# Npm Global Packages
-echo "installing a few global npm packages"
-npm install --global serve fkill-cli npm-quick-run semantic-release-cli npm-check-updates
-
-# Brew Cask
-echo "installing apps with brew cask"
-brew install --cask google-chrome firefox brave-browser itsycal visual-studio-code vlc \
-zoom spotify slack cakebrew grammarly notion postman docker iterm2 whatsapp rectangle \
-1password sourcetree raycast github discord asana toggl-track
-
-# NeoVim Plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# Brew fonts
-echo "installing fonts"
-brew tap homebrew/cask-fonts
-brew install --cask font-cascadia-code
-brew install --cask font-cascadia-code-pl
-brew install --cask font-cascadia-mono
-brew install --cask font-cascadia-mono-pl
-brew install --cask font-fira-code
-
-# Dot Files
-echo "cloning dotfiles"
-rm .zshrc
-rm .gitignore_global
-rm .gitconfig
-rm .vimrc
-git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
-ln -s "${HOME}/repos/cm/dotfiles/.zshrc" "${HOME}/.zshrc"
-ln -s "${HOME}/repos/cm/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
-ln -s "${HOME}/repos/cm/dotfiles/.gitconfig" "${HOME}/.gitconfig"
-ln -s "${HOME}/repos/cm/dotfiles/.vimrc" "${HOME}/.vimrc"
-ln -s "${HOME}/repos/cm/dotfiles/init.vim" "${HOME}/.config/nvim/init.vim"
-ln -s "${HOME}/repos/cm/dotfiles/coc-settings.json" "${HOME}/.config/nvim/coc-settings.json" 
-
-# Z Jump Around
-echo "Installing Z"
-cd ~
-git clone https://github.com/rupa/z.git
-cp $HOME/z/z.sh $HOME/z.sh
-chmod +x $HOME/z.sh
-rm -rf $HOME/z
-
-###############################################################################
-# MAC OS                                                                      #
-###############################################################################
-
-##########################################
-# Finder      
-##########################################
-# Finder: show all filename extensions
+# ##########################################
+# # Finder      
+# ##########################################
+# # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Finder: show status bar
+# # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 
-# Finder: show path bar
+# # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Set Desktop as the default location for new Finder windows
+# # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
-
-##########################################
-# Kill affected applications
-##########################################
+# ##########################################
+# # Kill affected applications
+# ##########################################
 for app in "Activity Monitor" \
   "Address Book" \
   "Calendar" \
@@ -128,11 +53,11 @@ for app in "Activity Monitor" \
   killall "${app}" &> /dev/null
 done
 
-###############################################################################
-# Custome Message                                                             #
-###############################################################################
+# ###############################################################################
+# # Custome Message                                                             #
+# ###############################################################################
 
-printf "TODO:\n\
+printf "${YELLOW}\nTODO:\n\
 modifications: \n\
   Dock Menu & Bar > Battery > Show Percentage \n\
 install: \n\
@@ -159,4 +84,4 @@ Restart Terminal.app\n\
 copy gitconfigs \n\
 Set Iterm2 default natural text editing \n\
 login to literally everything \n\
-"
+${RESET}"
