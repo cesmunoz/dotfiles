@@ -133,7 +133,7 @@ if [[ "$current_os" = "Mac" ]]; then
   echo ""
   log "Mac Customizations"
   
-  sh .macos
+  sh "${HOME}/repos/cm/dotfiles/.macos"
   
   echo ""
   log "Done Mac Customizations"
@@ -146,7 +146,7 @@ if [[ "$current_os" = "Linux" ]]; then
   echo ""
   log "Linux Customizations -> needs to be covered"
   
-  sh .linux.sh
+  sh "${HOME}/repos/cm/dotfiles/.linux.sh"
   
   echo ""
   log "Done Linux Customizations"
