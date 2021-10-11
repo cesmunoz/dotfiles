@@ -32,28 +32,11 @@ else
   log "Repo folder found...skipping"
 fi 
 
-# Dotfiles
+# Cloning Dotfiles
 echo ""
 if [[ ! -d "$HOME/repos/cm/dotfiles" ]]; then
   log "Cloning dotfiles"
   git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
-  
-
-  dotfiles=( ".zshrc" ".gitconfig" ".gitignore_global" ".vimrc" "init.vim" "coc-settings.json" )
-
-  echo ""
-  log "Symlinking default dotfiles with backups"
-  for file in "${dotfiles[@]}"; do
-    if [ -h "$HOME/$file" ]; then
-      echo "Skipping \"$HOME/$file\" since it is already a symlink..."
-    else
-      if [ -f "$HOME/$file" ]; then
-        mv -v "$HOME/$file" "$HOME/$file.bak"
-      fi
-
-      ln -s "$HOME/repos/cm/dotfiles/$file" "$HOME/$file"
-    fi
-  done
 else
   log "dotfiles folder found...skipping"
 fi
@@ -80,7 +63,6 @@ if [[ ! -f "$HOME/z.sh" ]]; then
   cp $HOME/z/z.sh $HOME/z.sh
   chmod +x $HOME/z.sh
   rm -rf $HOME/z
-  source $HOME/.zshrc
 else
   log "Z found...skipping"
 fi
@@ -153,6 +135,23 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 else
   log "Oh my zsh found...skipping"
 fi
+
+# SymLinkFiles
+dotfiles=( ".zshrc" ".gitconfig" ".gitignore_global" ".vimrc" "init.vim" "coc-settings.json" )
+
+echo ""
+log "Symlinking default dotfiles with backups"
+for file in "${dotfiles[@]}"; do
+  if [ -h "$HOME/$file" ]; then
+    echo "Skipping \"$HOME/$file\" since it is already a symlink..."
+  else
+    if [ -f "$HOME/$file" ]; then
+      mv -v "$HOME/$file" "$HOME/$file.bak"
+    fi
+
+    ln -s "$HOME/repos/cm/dotfiles/$file" "$HOME/$file"
+  fi
+done
 
 ###############################################################################
 # MAC                                                                         #
