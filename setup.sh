@@ -33,22 +33,12 @@ else
   log "Repo folder found...skipping"
 fi 
 
-# Oh my zsh
-echo ""
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-  log "Installing oh-my-zsh"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-else
-  log "Oh my zsh found...skipping"
-fi
-
 # N (node version installer)
 echo ""
 if [[ ! -d "$HOME/n" ]]; then
   log "Installing N (node version installer)"
   curl -L https://git.io/n-install | bash -s -- -y
-  # . $HOME/.zshrc
-  zsh
+  source  $HOME/.zshrc
 
   # Checking Node Version
   echo "node --version: $(node --version)"
@@ -62,8 +52,7 @@ echo ""
 if [[ ! -d "$HOME/.nvm" ]]; then
   log "Installing NVM"
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-  # . $HOME/.zshrc
-  zsh
+  source $HOME/.zshrc
 else
   log "NVM found...skipping"
 fi
@@ -115,6 +104,15 @@ if [[ ! -d "$HOME/repos/cm/dotfiles" ]]; then
   ln -s "${HOME}/repos/cm/dotfiles/coc-settings.json" "${HOME}/.config/nvim/coc-settings.json" 
 else
   log "dotfiles folder found...skipping"
+fi
+
+# Oh my zsh
+echo ""
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  log "Installing oh-my-zsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+  log "Oh my zsh found...skipping"
 fi
 
 # Homebrew
