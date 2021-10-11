@@ -46,7 +46,8 @@ echo ""
 if [[ ! -d "$HOME/n" ]]; then
   log "Installing N (node version installer)"
   curl -L https://git.io/n-install | bash -s -- -y
-  . $HOME/.zshrc
+  # . $HOME/.zshrc
+  zsh
 
   # Checking Node Version
   log "node --version: $(node --version)"
@@ -60,7 +61,8 @@ echo ""
 if [[ ! -d "$HOME/.nvm" ]]; then
   log "Installing NVM"
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-  . $HOME/.zshrc
+  # . $HOME/.zshrc
+  zsh
 else
   log "NVM found...skipping"
 fi
@@ -83,7 +85,8 @@ if [[ ! -f "$HOME/z.sh" ]]; then
   cp $HOME/z/z.sh $HOME/z.sh
   chmod +x $HOME/z.sh
   rm -rf $HOME/z
-  . $HOME/.zshrc
+  # . $HOME/.zshrc
+  zsh
 else
   log "Z found...skipping"
 fi
