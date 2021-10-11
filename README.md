@@ -9,3 +9,4 @@ sh ${HOME}/repos/cm/dotfiles/setup.sh
 
 ## Missing
 Linux Installation
+Run everything without cloning and creating folders
