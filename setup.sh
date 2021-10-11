@@ -33,6 +33,31 @@ else
   log "Repo folder found...skipping"
 fi 
 
+# Dotfiles
+echo ""
+if [[ ! -d "$HOME/repos/cm/dotfiles" ]]; then
+  log "Cloning dotfiles"
+  git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
+  log "Symlinking files"
+  ln -s "${HOME}/repos/cm/dotfiles/.zshrc" "${HOME}/.zshrc"
+  ln -s "${HOME}/repos/cm/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
+  ln -s "${HOME}/repos/cm/dotfiles/.gitconfig" "${HOME}/.gitconfig"
+  ln -s "${HOME}/repos/cm/dotfiles/.vimrc" "${HOME}/.vimrc"
+  ln -s "${HOME}/repos/cm/dotfiles/init.vim" "${HOME}/.config/nvim/init.vim"
+  ln -s "${HOME}/repos/cm/dotfiles/coc-settings.json" "${HOME}/.config/nvim/coc-settings.json" 
+else
+  log "dotfiles folder found...skipping"
+fi
+
+# Oh my zsh
+echo ""
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  log "Installing oh-my-zsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+  log "Oh my zsh found...skipping"
+fi
+
 # N (node version installer)
 echo ""
 if [[ ! -d "$HOME/n" ]]; then
@@ -90,30 +115,6 @@ else
   log "Vim-Plug found...skipping"
 fi
 
-# Dotfiles
-echo ""
-if [[ ! -d "$HOME/repos/cm/dotfiles" ]]; then
-  log "Cloning dotfiles"
-  git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
-  log "Symlinking files"
-  ln -s "${HOME}/repos/cm/dotfiles/.zshrc" "${HOME}/.zshrc"
-  ln -s "${HOME}/repos/cm/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
-  ln -s "${HOME}/repos/cm/dotfiles/.gitconfig" "${HOME}/.gitconfig"
-  ln -s "${HOME}/repos/cm/dotfiles/.vimrc" "${HOME}/.vimrc"
-  ln -s "${HOME}/repos/cm/dotfiles/init.vim" "${HOME}/.config/nvim/init.vim"
-  ln -s "${HOME}/repos/cm/dotfiles/coc-settings.json" "${HOME}/.config/nvim/coc-settings.json" 
-else
-  log "dotfiles folder found...skipping"
-fi
-
-# Oh my zsh
-echo ""
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-  log "Installing oh-my-zsh"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-else
-  log "Oh my zsh found...skipping"
-fi
 
 # Homebrew
 echo ""
