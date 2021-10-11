@@ -23,24 +23,6 @@ log "Initializing Setup for a $current_os..."
 echo ""
 log "Hello $(whoami)! Let's get you set up"
 
-# Repo Folder
-echo ""
-if [[ ! -d ${HOME}/repos ]]; then
-  log "Creating Repository folder"
-  mkdir -p "${HOME}/repos"
-else 
-  log "Repo folder found...skipping"
-fi 
-
-# Cloning Dotfiles
-echo ""
-if [[ ! -d "$HOME/repos/cm/dotfiles" ]]; then
-  log "Cloning dotfiles"
-  git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
-else
-  log "dotfiles folder found...skipping"
-fi
-
 # Homebrew
 echo ""
 if [[ ! -f "`which brew`" ]]; then
