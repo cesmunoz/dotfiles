@@ -54,7 +54,6 @@ echo ""
 if [[ ! -d "$HOME/n" ]]; then
   log "Installing N (node version installer)"
   curl -L https://git.io/n-install | bash -s -- -y
-  source  $HOME/.zshrc
 
   # Checking Node Version
   echo "node --version: $(node --version)"
@@ -68,15 +67,12 @@ echo ""
 if [[ ! -d "$HOME/.nvm" ]]; then
   log "Installing NVM"
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-  source $HOME/.zshrc
 else
   log "NVM found...skipping"
 fi
 
 if [ ! -x "$(command -v node)" ]; then
-  if [ ! -d "$HOME/.nvm" ]; then
-    mkdir ~/.nvm
-  fi
+  source "$HOME/.zshrc"
 
   log "Installing node nvm..."
   nvm install stable
