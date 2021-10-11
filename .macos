@@ -50,7 +50,11 @@ npm install --global serve fkill-cli npm-quick-run semantic-release-cli npm-chec
 echo "installing apps with brew cask"
 brew install --cask google-chrome firefox brave-browser itsycal visual-studio-code vlc \
 zoom spotify slack cakebrew grammarly notion postman docker iterm2 whatsapp rectangle \
-1password sourcetree raycast github
+1password sourcetree raycast github discord asana toggl-track
+
+# NeoVim Plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Brew fonts
 echo "installing fonts"
@@ -140,16 +144,12 @@ install: \n\
   World Clock \n\
   DynamoDbGUI \n\
   NoSQL Workbench \n\
-  Printunl \n\
   Stream Deck \n\
   ObinsKit \n\
   Logi Options \n\
-  Discord \n\
-  Asana \n\
   Universal Control \n\
   Kindle
   Microsoft TODO \n\
-  Toggle Track \n\
   Text Mate \n\
   Keka \n\
   Amphetamine \n\
