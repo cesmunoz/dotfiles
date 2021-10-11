@@ -111,7 +111,7 @@ fi
 
 echo ""
 log "Installing Homebrew dependencies"
-brew bundle
+brew bundle --file=$HOME/repos/cm/dotfiles/Brewfile
 
 # Dotfiles
 echo ""
