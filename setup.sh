@@ -10,7 +10,6 @@ YELLOW=$(tput setaf 3);
 RESET=$(tput sgr0);
 
 function log() {
-  echo $1
   echo "${GREEN}${PREFIX} $1${RESET}"
 }
 
@@ -59,13 +58,31 @@ else
   log "dotfiles folder found...skipping"
 fi
 
-# Oh my zsh
+# Homebrew
 echo ""
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-  log "Installing oh-my-zsh"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+if [[ ! -f "`which brew`" ]]; then
+  log "Installing Homebrew"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else 
+  log "Homebrew found...skipping"
+fi
+
+echo ""
+log "Installing Homebrew dependencies"
+brew bundle --file=$HOME/repos/cm/dotfiles/Brewfile
+
+# Z Jump Around
+echo ""
+if [[ ! -f "$HOME/z.sh" ]]; then
+  log "Installing Z"
+  cd ~
+  git clone https://github.com/rupa/z.git
+  cp $HOME/z/z.sh $HOME/z.sh
+  chmod +x $HOME/z.sh
+  rm -rf $HOME/z
+  source $HOME/.zshrc
 else
-  log "Oh my zsh found...skipping"
+  log "Z found...skipping"
 fi
 
 # N (node version installer)
@@ -92,6 +109,24 @@ else
   log "NVM found...skipping"
 fi
 
+if [ ! -x "$(command -v node)" ]; then
+  if [ ! -d "$HOME/.nvm" ]; then
+    mkdir ~/.nvm
+  fi
+
+  log "Installing node nvm..."
+  nvm install stable
+  nvm alias default stable
+  nvm use default
+
+  log "Installing node n..."
+  n latest
+
+  source "$HOME/.zshrc"
+else
+  echo "node found... skipping installation"
+fi
+
 package="npm-quick-run"
 echo ""
 if [[ `npm list -g | grep -c ${package}` -eq 0 ]]; then
@@ -99,21 +134,6 @@ if [[ `npm list -g | grep -c ${package}` -eq 0 ]]; then
   npm install --global serve fkill-cli npm-quick-run semantic-release-cli npm-check-updates
 else
   log "NPM global packages found...skipping"
-fi
-
-# Z Jump Around
-echo ""
-if [[ ! -f "$HOME/z.sh" ]]; then
-  log "Installing Z"
-  cd ~
-  git clone https://github.com/rupa/z.git
-  cp $HOME/z/z.sh $HOME/z.sh
-  chmod +x $HOME/z.sh
-  rm -rf $HOME/z
-  # . $HOME/.zshrc
-  zsh
-else
-  log "Z found...skipping"
 fi
 
 echo ""
@@ -125,19 +145,14 @@ else
   log "Vim-Plug found...skipping"
 fi
 
-
-# Homebrew
+# Oh my zsh
 echo ""
-if [[ ! -f "`which brew`" ]]; then
-  log "Installing Homebrew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else 
-  log "Homebrew found...skipping"
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  log "Installing oh-my-zsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+  log "Oh my zsh found...skipping"
 fi
-
-echo ""
-log "Installing Homebrew dependencies"
-brew bundle --file=$HOME/repos/cm/dotfiles/Brewfile
 
 ###############################################################################
 # MAC                                                                         #

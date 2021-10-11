@@ -72,7 +72,9 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+if [[ -d "$HOME/.oh-my-zsh" ]]; then
+  source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
@@ -138,20 +140,20 @@ newPrompt () {
 HISTSIZE=5000
 HISTFILESIZE=10000
 SAVEHIST=5000
-setopt EXTENDED_HISTORY
+# setopt EXTENDED_HISTORY
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 
 # allow substitution in PS1
-setopt promptsubst
+# setopt promptsubst
 
 # share history across multiple zsh sessions
-setopt SHARE_HISTORY
+# setopt SHARE_HISTORY
 # append to history
-setopt APPEND_HISTORY
+# setopt APPEND_HISTORY
 # adds commands as they are typed, not at shell exit
-setopt INC_APPEND_HISTORY
+# setopt INC_APPEND_HISTORY
 # do not store duplications
-setopt HIST_IGNORE_DUPS
+# setopt HIST_IGNORE_DUPS
 
 ###### ALIAS ######
 
@@ -250,11 +252,11 @@ function invokesls() {
 }
 
 # VSCode
-function c { code ${@:-.} }
-
+function c() {
+  code $1 
+}
 mg () { mkdir "$@" && cd "$@" || exit; }
 cdl() { cd "$@" && ll; }
-npm-latest() { npm info "$1" | grep latest; }
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
 function quit () {
   if [ -z "$1" ]; then
@@ -267,26 +269,17 @@ function quit () {
   fi
 }
 
-# Presto
-alias presto-connect=". ${HOME}/work/jampp/scripts/connect-presto.sh";
-alias presto-csv=". ${HOME}/work/jampp/scripts/query-csv.sh";
-
 ###### CONFIG CLI APPS ###### 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # N
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 # Z
 source $HOME/z.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
