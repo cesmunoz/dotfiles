@@ -10,6 +10,7 @@ YELLOW=$(tput setaf 3);
 RESET=$(tput sgr0);
 
 function log() {
+  echo $1
   echo "${GREEN}${PREFIX} $1${RESET}"
 }
 
@@ -50,8 +51,8 @@ if [[ ! -d "$HOME/n" ]]; then
   zsh
 
   # Checking Node Version
-  log "node --version: $(node --version)"
-  log "npm --version: $(npm --version)"
+  echo "node --version: $(node --version)"
+  echo "npm --version: $(npm --version)"
 else
   log "N found...skipping"
 fi
@@ -100,19 +101,6 @@ else
   log "Vim-Plug found...skipping"
 fi
 
-# Homebrew
-echo ""
-if [[ ! -f "`which brew`" ]]; then
-  log "Installing Homebrew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else 
-  log "Homebrew found...skipping"
-fi
-
-echo ""
-log "Installing Homebrew dependencies"
-brew bundle --file=$HOME/repos/cm/dotfiles/Brewfile
-
 # Dotfiles
 echo ""
 if [[ ! -d "$HOME/repos/cm/dotfiles" ]]; then
@@ -128,6 +116,19 @@ if [[ ! -d "$HOME/repos/cm/dotfiles" ]]; then
 else
   log "dotfiles folder found...skipping"
 fi
+
+# Homebrew
+echo ""
+if [[ ! -f "`which brew`" ]]; then
+  log "Installing Homebrew"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else 
+  log "Homebrew found...skipping"
+fi
+
+echo ""
+log "Installing Homebrew dependencies"
+brew bundle --file=$HOME/repos/cm/dotfiles/Brewfile
 
 ###############################################################################
 # MAC                                                                         #
