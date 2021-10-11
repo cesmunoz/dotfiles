@@ -38,13 +38,23 @@ echo ""
 if [[ ! -d "$HOME/repos/cm/dotfiles" ]]; then
   log "Cloning dotfiles"
   git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
-  log "Symlinking files"
-  ln -s "${HOME}/repos/cm/dotfiles/.zshrc" "${HOME}/.zshrc"
-  ln -s "${HOME}/repos/cm/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
-  ln -s "${HOME}/repos/cm/dotfiles/.gitconfig" "${HOME}/.gitconfig"
-  ln -s "${HOME}/repos/cm/dotfiles/.vimrc" "${HOME}/.vimrc"
-  ln -s "${HOME}/repos/cm/dotfiles/init.vim" "${HOME}/.config/nvim/init.vim"
-  ln -s "${HOME}/repos/cm/dotfiles/coc-settings.json" "${HOME}/.config/nvim/coc-settings.json" 
+  
+
+  dotfiles=( ".zshrc" ".gitconfig" ".gitignore_global" ".vimrc" "init.vim" "coc-settings.json" )
+
+  echo ""
+  log "Symlinking default dotfiles with backups"
+  for file in "${dotfiles[@]}"; do
+    if [ -h "$HOME/$file" ]; then
+      echo "Skipping \"$HOME/$file\" since it is already a symlink..."
+    else
+      if [ -f "$HOME/$file" ]; then
+        mv -v "$HOME/$file" "$HOME/$file.bak"
+      fi
+
+      ln -s "$HOME/repos/cm/dotfiles/$file" "$HOME/$file"
+    fi
+  done
 else
   log "dotfiles folder found...skipping"
 fi
