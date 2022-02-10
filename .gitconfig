@@ -1,8 +1,12 @@
 [user]
-  name = Cesar Munoz
-  email = Cesar Munoz
-[includeif "gitdir:~/repos/cm/"]
+	name = Cesar Munoz
+	email = Cesar Munoz
+[includeIf "gitdir:~/repos/cm/"]
   path = "~/.gitconfigs/.cm"
+[includeIf "gitdir:~/repos/cemdev/"]
+  path = "~/.gitconfigs/.cm"
+[includeIf "gitdir:~/repos/filestage/"]
+  path = "~/.gitconfigs/.filestage"
 
 [pull]
   rebase = true
@@ -42,6 +46,7 @@
   branches = branch --all
   cred = config credential.helper 'cache --timeout=300'
   whoami = config user.email
+  whoaminame = config user.name
 [color]
   ui = true
 [color "diff-highlight"]

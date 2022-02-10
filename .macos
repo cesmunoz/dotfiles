@@ -63,7 +63,6 @@ modifications: \n\
 install: \n\
   Padbury Clock \n\
   ICUE \n\
-  Kap \n\
   Configurador FNMT \n\
   Autofirma \n\
   World Clock \n\
@@ -77,8 +76,7 @@ install: \n\
   Microsoft TODO \n\
   Text Mate \n\
   Keka \n\
-  Amphetamine \n\
-  World Clock \n\
+  Amphetamine \n\ 
 \n\
 Restart Terminal.app\n\
 copy gitconfigs \n\
