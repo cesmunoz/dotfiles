@@ -23,6 +23,16 @@ log "Initializing Setup for a $current_os..."
 echo ""
 log "Hello $(whoami)! Let's get you set up"
 
+# Oh my zsh
+echo ""
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  log "Installing oh-my-zsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+  log "Oh my zsh found...skipping"
+fi
+
+
 # Homebrew
 echo ""
 if [[ ! -f "`which brew`" ]]; then
