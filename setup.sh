@@ -73,13 +73,13 @@ else
 fi
 
 # NVM
-echo ""
-if [[ ! -d "$HOME/.nvm" ]]; then
-  log "Installing NVM"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-else
-  log "NVM found...skipping"
-fi
+# echo ""
+# if [[ ! -d "$HOME/.nvm" ]]; then
+#   log "Installing NVM"
+#   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+# else
+#   log "NVM found...skipping"
+# fi
 
 if [ ! -x "$(command -v node)" ]; then
   source "$HOME/.zshrc"
