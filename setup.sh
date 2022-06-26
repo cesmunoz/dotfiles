@@ -3,14 +3,14 @@ set -e
 
 [[ "$(uname -s)" = "Darwin" ]] && current_os="Mac" || current_os="Linux"
 
-PREFIX="@setup >"
+CM_PREFIX="@setup >"
 # Colors
 GREEN=$(tput setaf 2);
 YELLOW=$(tput setaf 3);
 RESET=$(tput sgr0);
 
 function log() {
-  echo "${GREEN}${PREFIX} $1${RESET}"
+  echo "${GREEN}${CM_PREFIX} $1${RESET}"
 }
 
 ###############################################################################
@@ -105,18 +105,24 @@ else
   log "Vim-Plug found...skipping"
 fi
 
-# Oh my zsh
-echo ""
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-  log "Installing oh-my-zsh"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-else
-  log "Oh my zsh found...skipping"
-fi
-
 # SymLinkFiles
-dotfiles=( ".zshrc" ".gitconfig" ".gitignore_global" ".vimrc" "init.vim" "coc-settings.json" )
+dotfiles=( ".zshrc" ".gitconfig" ".gitignore_global" ".vimrc")
 
+echo ""
+log "Symlinking default dotfiles with backups"
+for file in "${dotfiles[@]}"; do
+  if [ -h "$HOME/$file" ]; then
+    echo "Skipping \"$HOME/$file\" since it is already a symlink..."
+  else
+    if [ -f "$HOME/$file" ]; then
+      mv -v "$HOME/$file" "$HOME/$file.bak"
+    fi
+
+    ln -s "$HOME/repos/cm/dotfiles/$file" "$HOME/$file"
+  fi
+done
+
+dotfileVim = ("init.vim")
 echo ""
 log "Symlinking default dotfiles with backups"
 for file in "${dotfiles[@]}"; do

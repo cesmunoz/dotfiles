@@ -1,6 +1,6 @@
 [user]
-	name = Cesar Munoz
-	email = Cesar Munoz
+  name = Cesar Munoz
+  email = Cesar Munoz
 [includeIf "gitdir:~/repos/cm/"]
   path = "~/.gitconfigs/.cm"
 [includeIf "gitdir:~/repos/cemdev/"]
@@ -43,10 +43,12 @@
   stl = stash list
   la = "!git config -l | grep alias | cut -c 7-"
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  l1000 = log --pretty=oneline -n 1000 --graph --abbrev-commit
   branches = branch --all
   cred = config credential.helper 'cache --timeout=300'
   whoami = config user.email
   whoaminame = config user.name
+  aliases = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#"
 [color]
   ui = true
 [color "diff-highlight"]
@@ -61,9 +63,3 @@
   old = red bold
   new = green bold
   whitespace = red reverse
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true

@@ -237,8 +237,10 @@ function workenv() {
   echo "Change AWS Working environment to > $1"
   rm ~/.aws/config
   rm ~/.aws/credentials
+  rm ~/.aws/whoami
   cp ~/.aws/$1/config ~/.aws/config
   cp ~/.aws/$1/credentials ~/.aws/credentials
+  cp ~/.aws/$1/whoami ~/.aws/whoami
 }
 
 # Serverless
