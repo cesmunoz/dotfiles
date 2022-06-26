@@ -122,7 +122,7 @@ for file in "${dotfiles[@]}"; do
   fi
 done
 
-dotfileVim = ("init.vim")
+dotfileVim=( "init.vim" )
 echo ""
 log "Symlinking default dotfiles with backups"
 for file in "${dotfiles[@]}"; do
@@ -149,21 +149,3 @@ if [[ "$current_os" = "Mac" ]]; then
   echo ""
   log "Done Mac Customizations"
 fi
-
-###############################################################################
-# LINUX (Needs to be covered)                                                 #
-###############################################################################
-if [[ "$current_os" = "Linux" ]]; then
-  echo ""
-  log "Linux Customizations -> needs to be covered"
-  
-  sh "${HOME}/repos/cm/dotfiles/.linux.sh"
-  
-  echo ""
-  log "Done Linux Customizations"
-fi
-
-echo ""
-log "FINISHED!"
-echo ""
-
