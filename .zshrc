@@ -173,6 +173,7 @@ alias ll="ls -1a";
 # Zshrc
 alias vz="vim ~/.zshrc";
 alias cz="code ~/.zshrc";
+alias cg="code ~/.gitconfig";
 alias vinit="vim ~/.config/nvim/init.vim"
 
 # BASH

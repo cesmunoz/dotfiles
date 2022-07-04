@@ -1,6 +1,6 @@
 [user]
-  name = Cesar Munoz
-  email = Cesar Munoz
+	name = Cesar Muñoz
+	email = Cesar Muñoz
 [includeIf "gitdir:~/repos/cm/"]
   path = "~/.gitconfigs/.cm"
 [includeIf "gitdir:~/repos/cemdev/"]
@@ -63,3 +63,8 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
