@@ -7,6 +7,8 @@ git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/repos/cm/dotfiles"
 sh ${HOME}/repos/cm/dotfiles/setup.sh
 ```
 
-## Missing
-Linux Installation
-Run everything without cloning and creating folders
+## Manual Install
+
+### Application to install with homebrew
+> brew bundle install
+
