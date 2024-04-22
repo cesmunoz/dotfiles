@@ -1,10 +1,10 @@
 [user]
 	name = Cesar Muñoz
-	email = Cesar Muñoz
+	email = Cesar Muñoz Email
 [includeIf "gitdir:~/repos/personal/"]
-  path = "~/personal/.gitconfig"
+  path = "~/repos/personal/.gitconfig"
 [includeIf "gitdir:~/repos/work/"]
-  path = "~/.gitconfigs/work"
+  path = "~/repos/work/.gitconfig"
 
 [core]
   autocrlf = false
