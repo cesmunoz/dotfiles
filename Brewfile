@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 brew "awscli"
 brew "defaultbrowser"
+brew "gh"
 brew "node"
 brew "z"
 cask "1password"
