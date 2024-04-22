@@ -49,6 +49,9 @@ alias ga="git add .";
 dif() { git diff --color --no-index "$1" "$2" | diff-so-fancy; }
 cdiff() { code --diff "$1" "$2"; }
 
+# Github
+alias ghwho="gh config get user -h github.com";
+
 ## Npm
 alias ni="npm install";
 alias nrs="npm run start -s --";
