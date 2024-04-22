@@ -1,25 +1,15 @@
 [user]
 	name = Cesar Muñoz
 	email = Cesar Muñoz
-[includeIf "gitdir:~/repos/cm/"]
-  path = "~/.gitconfigs/.cm"
-[includeIf "gitdir:~/repos/cemdev/"]
-  path = "~/.gitconfigs/.cm"
-[includeIf "gitdir:~/repos/filestage/"]
-  path = "~/.gitconfigs/.filestage"
+[includeIf "gitdir:~/repos/personal/"]
+  path = "~/personal/.gitconfig"
+[includeIf "gitdir:~/repos/work/"]
+  path = "~/.gitconfigs/work"
 
-[pull]
-  rebase = true
-[branch]
-  autosetuprebase = always
-[push]
-  default = current
 [core]
   autocrlf = false
   eol = lf
-	excludesfile = /Users/cesmunoz/.gitignore_global
-[init]
-  defaultBranch = main
+	excludesfile = ~/.gitignore_global
 [alias]
   rh = reset --hard HEAD
   r = reset --hard
@@ -49,22 +39,3 @@
   whoami = config user.email
   whoaminame = config user.name
   aliases = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#"
-[color]
-  ui = true
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-[color "diff"]
-  meta = 11
-  frag = magenta bold
-  commit = yellow bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
