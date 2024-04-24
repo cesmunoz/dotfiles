@@ -12,3 +12,4 @@ sh ${HOME}/repos/cm/dotfiles/setup.sh
 ### Application to install with homebrew
 > brew bundle install
 
+Install amphetamine from app store
