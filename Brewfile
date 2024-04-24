@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 brew "awscli"
 brew "defaultbrowser"
+brew "fzf"
 brew "gh"
 brew "node"
 brew "volta"
