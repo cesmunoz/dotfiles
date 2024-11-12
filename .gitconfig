@@ -1,46 +1,15 @@
 [user]
-	name = Cesar Muñoz
-	email = Cesar Muñoz Email
-[includeIf "gitdir:~/repos/personal/"]
-  path = "~/repos/personal/.gitconfig"
-[includeIf "gitdir:~/repos/work/"]
-  path = "~/repos/work/.gitconfig"
-
+  name = Cesar Muñoz
+  email = Cesar Muñoz Email
 [core]
   autocrlf = false
   eol = lf
-	excludesfile = ~/.gitignore_global
 [alias]
-  rh = reset --hard HEAD
-  r = reset --hard
-  ca = commit -a --verbose
-  cm = commit -m 
-  cp = cherry pick
-  co = checkout
-  b = checkout -b
-  amend = commit -a --amend --no-edit
-  unstage = reset --soft HEAD
-  cdiff = "!git diff $1 $1 ^"
-  br = branch
-  s = status -s
-  sw = switch
-  swc = switch -c
-  f = fetch 
-  pu = push 
-  pl = pull
-  st = stash
   stsu = stash save -u
-  stl = stash list
-  la = "!git config -l | grep alias | cut -c 7-"
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   l1000 = log --pretty=oneline -n 1000 --graph --abbrev-commit
   branches = branch --all
-  cred = config credential.helper 'cache --timeout=300'
   whoami = config user.email
   whoaminame = config user.name
   aliases = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#"
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  amountdiff = "!git diff --shortstat --ignore-all-space origin/master | grep -o -E '[0-9]+' | sed -n '2 p'"
