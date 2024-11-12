@@ -23,7 +23,7 @@ alias nz="n ~/.zshrc";
 alias cz="c ~/.zshrc";
 alias cg="c ~/.gitconfig";
 alias ng="n ~/.gitconfig";
-alias ninit="n ~/.config/nvim/init.lua";
+alias ninit="n ~/.config/nvim/init.lua"; # for Kickstart neovim
 
 # Misc
 alias reload="source ~/.zshrc"
