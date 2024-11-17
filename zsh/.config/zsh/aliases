@@ -1,0 +1,41 @@
+# Directories
+alias ..="cd ../";
+alias ...="cd ../../";
+alias ....="cd ../../../";
+
+# FileSystem
+alias lsa="ls -a";
+alias ls='eza -lh --group-directories-first --icons'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
+alias fd='fdfind'
+alias cd='z'
+
+# Tools
+alias g="git"
+alias n="nvim"
+alias lg="lazygit"
+alias vim="n"
+alias v="n"
+alias c="code"
+
+# Dotfiles
+alias nz="n ~/.zshrc"
+alias cz="c ~/.zshrc"
+alias cg="c ~/.gitconfig"
+alias ng="n ~/.gitconfig"
+alias ninit="n ~/.config/nvim/init.lua" # for Kickstart neovim
+
+# Misc
+alias reload="source ~/.zshrc"
+
+# Git
+alias gs="git status -s"
+alias ga="git add -A"
+alias gf="git fetch"
+alias gc="git commit -m"
+alias gw="git switch"
+alias gwc="git switch -c"
+alias gpo='git push origin "$(git symbolic-ref --short HEAD)"'
+alias gponv='git push origin "$(git symbolic-ref --short HEAD)" --no-verify'
