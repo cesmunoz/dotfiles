@@ -6,4 +6,5 @@ set -e
 ./mac/desktop.sh
 ./mac/default.sh
 
-stow nvim
+stow nvim -t $HOME
+stow git -t $HOME
