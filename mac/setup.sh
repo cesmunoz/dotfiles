@@ -9,3 +9,4 @@ set -e
 stow nvim -t $HOME
 stow git -t $HOME
 stow nvim -t $HOME
+stow alacritty -t $HOME
