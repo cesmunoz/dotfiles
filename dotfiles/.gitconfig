@@ -1,4 +1,15 @@
 [user]
-	email = cesar.alberto.munoz@gmail.com
-	name = Cesar Munoz
-  
+  name = Cesar Muñoz
+  email = 5853160+cesmunoz@users.noreply.github.com
+[core]
+  autocrlf = false
+  eol = lf
+[alias]
+  stsu = stash save -u
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  l1000 = log --pretty=oneline -n 1000 --graph --abbrev-commit
+  branches = branch --all
+  whoami = config user.email
+  whoaminame = config user.name
+  aliases = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#"
+  amountdiff = "!git diff --shortstat --ignore-all-space origin/master | grep -o -E '[0-9]+' | sed -n '2 p'"
