@@ -31,7 +31,4 @@ rm -rf ~/.config/nvim
 git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 echo -e "\nStow Dependencies"
-stow --adopt zsh -t $HOME
-stow --adopt git -t $HOME
-stow --adopt nvim -t $HOME
-stow --adopt alacritty -t $HOME
+stow --adopt dotfiles -t $HOME
