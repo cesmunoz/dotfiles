@@ -20,11 +20,13 @@ brew install  \
   mise
 
 OPTIONAL_TOOLS=("awscli" "cloudflared")
-SELECTED_OPTIONS=$(gum choose --no-limit "${OPTIONAL_TOOLS[@]}")
+SELECTED_OPTIONAL_TOOLS=$(gum choose --no-limit "${OPTIONAL_TOOLS[@]}")
 
-for tool in "${SELECTED_OPTIONS[@]}"; do
-  brew install $tool
-done
+if [ -n "$SELECTED_OPTIONS" ]; then
+  for tool in "${SELECTED_OPTIONAL_TOOLS[@]}"; do
+    brew install $tool
+  done
+fi
 
 echo -e "\nInstalling Kickstart Neovim"
 rm -rf ~/.config/nvim

@@ -17,9 +17,11 @@ brew install --cask\
   discord \
   alacritty
 
-OPTIONAL_TOOLS=("slack" "studio-3t" "loom" "mongodb-compass")
-SELECTED_OPTIONS=$(gum choose --no-limit "${OPTIONAL_TOOLS[@]}")
+OPTIONAL_APPS=("slack" "studio-3t" "loom" "mongodb-compass")
+SELECTED_OPTIONAL_APPS=$(gum choose --no-limit "${OPTIONAL_APPS[@]}")
 
-for tool in "${SELECTED_OPTIONS[@]}"; do
-  brew install --cask $tool
-done
+if [ -n "$OPTIONAL_APPS" ]; then
+  for tool in "${SELECTED_OPTIONAL_APPS[@]}"; do
+    brew install --cask $tool
+  done
+fi
