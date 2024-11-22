@@ -3,4 +3,5 @@ function parse_git_branch() {
 }
 
 setopt PROMPT_SUBST
-export PROMPT='%F{green}%~%f %F{red}$(parse_git_branch)%f$DELIMITER '
+DELIMITER='%F{blue}❯%f '
+export PROMPT='%F{green}%~%f %F{red}$(parse_git_branch)%f$DELIMITER'
