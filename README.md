@@ -4,9 +4,9 @@ This repo contains my dotfiles and all the configurations I use on my computer.
 
 ## Installation
 ```bash
-mkdir -p "${HOME}/cm/repos/dotfiles"
-git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/cm/repos/dotfiles"
-cd ${HOME}/cm/repos/dotfiles
+mkdir -p "${HOME}/ces/repos/dotfiles"
+git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/ces/repos/dotfiles"
+cd ${HOME}/ces/repos/dotfiles
 ./install.sh
 ```
 
@@ -16,10 +16,10 @@ cd ${HOME}/cm/repos/dotfiles
 
 #### From the App Store
 - Amphetamine
-  
+
 #### Customizations
 
-##### More 
+##### More
 - Cascadia Code
 - Cascadia Nerd Font
 - Go to icloud and download the wallpaper from favorites
@@ -56,7 +56,7 @@ Here is missing the setup. This is something I will do it later. But for now I´
 - Just perfection
 - Blur my shell
 
-##### More 
+##### More
 - Cascadia Code
 - Cascadia Nerd Font
 - Disable ubuntu tiling assistant
