@@ -12,10 +12,15 @@ brew install --cask\
   visual-studio-code \
   zed \
   postman \
-  rectangle \
   spotify \
   discord \
   alacritty
+
+
+brew install --cask nikitabobko/tap/aerospace
+
+brew tap FelixKratz/formulae
+brew install sketchybar
 
 OPTIONAL_APPS=("slack" "studio-3t" "loom" "mongodb-compass")
 SELECTED_OPTIONAL_APPS=$(gum choose --no-limit "${OPTIONAL_APPS[@]}")
