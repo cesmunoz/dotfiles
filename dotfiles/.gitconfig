@@ -1,6 +1,8 @@
-[user]
-	name = Cesar Munoz
-	email = Cesar Munoz
+[includeIf "gitdir:~/dev/cm/"]
+  path = ~/dev/.git-me
+[includeIf "gitdir:~/dev/fs/"]
+  path = ~/dev/.git-fs
+
 [core]
   autocrlf = false
   eol = lf
@@ -15,7 +17,7 @@
   amountdiff = "!git diff --shortstat --ignore-all-space origin/master | grep -o -E '[0-9]+' | sed -n '2 p'"
 [credential "https://github.com"]
 	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !/usr/bin/gh auth git-credential
