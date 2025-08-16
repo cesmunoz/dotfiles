@@ -1,0 +1,33 @@
+# Directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# FileSystem
+alias ls='eza -lh --group-directories-first --icons=auto'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+
+# Tools
+alias g="git"
+alias n="nvim"
+alias lg="lazygit"
+alias vim="n"
+alias v="n"
+alias c="code"
+alias ci="code-insiders"
+
+# Misc
+alias reload="source ~/.zshrc"
+
+# Git
+alias gs="git status -s"
+alias ga="git add -A"
+alias gf="git fetch"
+alias gc="git commit -m"
+alias gw="git switch"
+alias gwc="git switch -c"
+alias gpo='git push origin "$(git symbolic-ref --short HEAD)"'
+alias gponv='git push origin "$(git symbolic-ref --short HEAD)" --no-verify'

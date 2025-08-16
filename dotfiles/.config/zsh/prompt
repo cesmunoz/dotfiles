@@ -1,7 +1,0 @@
-function parse_git_branch() {
-    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
-}
-
-setopt PROMPT_SUBST
-DELIMITER='%F{blue}❯%f '
-export PROMPT='%F{green}%~%f %F{red}$(parse_git_branch)%f$DELIMITER'

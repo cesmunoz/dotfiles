@@ -1,10 +1,7 @@
 function workenv() {
   echo "Change AWS Working environment to > $1"
-  export AWS_PROFILE=$1
+  export AWS_DEFAULT_PROFILE=$1
 }
 
 ## AWS
 alias awswhoami="aws sts get-caller-identity";
-
-# Custom
-alias fsdev="workenv fs-dev && ./bin/start-no-docker";

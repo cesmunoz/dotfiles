@@ -1,0 +1,14 @@
+#!/bin/bash
+
+brew install --cask\
+  raycast \
+  google-chrome \
+  brave-browser \
+  1password \
+  ghostty \
+  visual-studio-code \
+  postman \
+  spotify \
+  discord \
+  obs \
+  visual-studio-code@insiders \

@@ -1,8 +1,3 @@
-[includeIf "gitdir:~/dev/cm/"]
-  path = ~/dev/.git-me
-[includeIf "gitdir:~/dev/fs/"]
-  path = ~/dev/.git-fs
-
 [core]
   autocrlf = false
   eol = lf
@@ -25,8 +20,3 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process

@@ -1,45 +1,59 @@
 # Dotfiles
 
-This repo contains my dotfiles and all the configurations I use on my computer.
+This repo contains my dotfiles and all the configurations I use on my computers.
+Here we have the configuration for Mac and Arch linux.
 
-## Installation
+In the Cross-platform we will have some common tools and tools/apps/configuration specific to each OS
+
+# Table of Contents
+- [Dotfiles](#dotfiles)
+- [Table of Contents](#table-of-contents)
+  - [📦 Structure](#-structure)
+  - [🚀 Installation](#-installation)
+  - [Configurations for each OS](#configurations-for-each-os)
+    - [MAC](#mac)
+    - [Linux](#linux)
+
+## 📦 Structure
+```
+~/.dotfiles
+├── dotfiles
+├── install/
+    ├── os/
+    │   ├── mac/
+    │   ├── arch/
+```
+---
+
+## 🚀 Installation
+
+Clone the repo into `~/dev`:
+
 ```bash
-mkdir -p "${HOME}/dev/cm/dotfiles"
-git clone https://github.com/cesmunoz/dotfiles.git "${HOME}/dev/cm/dotfiles"
-cd ${HOME}/dev/cm/dotfiles
-./install.sh
+mkdir -p ~/dev/cm
+git clone https://github.com/cesmunoz/dotfiles.git ~/dev/cm/dotfiles
+cd ~/dev/cm/dotfiles
+sudo ./install.sh
 ```
 
-## Configurations
+The installer will:
+
+- Detect the operating system (macOS or Arch Linux)
+- Ensure gum and stow are installed
+- Install a small set of core tools (zsh, neovim, etc).
+- Stow the dotfiles into $HOME
+- Apply OS-specific steps:
+  - macOS: optional Brewfile + defaults.sh
+  - Arch: optional aur packages, set default shell to zsh
+
+Note: The script uses gum for nicer prompts/spinners if available.
+It will install gum automatically before using it.
+
+## Configurations for each OS
 
 ### MAC
 
-#### From the App Store
-- Amphetamine
-
-#### Customizations
-
-##### More
-- Cascadia Code
-- Cascadia Nerd Font
-- Go to icloud and download the wallpaper from favorites
-- Color Blue
-
 ### Linux
-
-Here is missing the setup. This is something I will do it later. But for now I´m going to add all the configuration here.
-
-#### Installations
-
-##### Terminal Tools
-- Git
-- Curl
-- Gh
-- Neovim
-- Kickstart
-
-##### Apps
-- 1Password
 
 
 
