@@ -9,6 +9,8 @@
 [alias]
   stsu = stash save -u
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  pb = "!git push origin $(git branch --show-current)"
+  pbn = "!git push origin $(git branch --show-current) --no-verify"
   l1000 = log --pretty=oneline -n 1000 --graph --abbrev-commit
   pb = "!git push origin $(git branch --show-current)"
   pbn = "!git push origin $(git branch --show-current) --no-verify"
@@ -22,4 +24,9 @@
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
-	helper = !/usr/bin/gh auth git-credential
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
