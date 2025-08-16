@@ -45,7 +45,6 @@ echo -e "\n\n"
 
 
 # FOR MAC We need to create a later installation for later setup
-# oh my zsh and adjust .zshrc
 # awscli later
 # cloudflared later
 # mongodb-compass
