@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew install --cask\
+brew install --force --cask\
   raycast \
   google-chrome \
   brave-browser \
