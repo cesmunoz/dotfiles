@@ -44,8 +44,6 @@ echo -e "\n\n 🎉 Setup complete"
 echo -e "\n\n"
 
 
-
-
 # FOR Linux
 #zsh, oh my zsh and adjust .zshrc, eza, fzf, git, curl, neovim, fd, fzf, zoxide
 #gh, lazygit, stow, mise, ffmpeg, pnpm
