@@ -10,9 +10,8 @@ In the Cross-platform we will have some common tools and tools/apps/configuratio
 - [Table of Contents](#table-of-contents)
   - [📦 Structure](#-structure)
   - [🚀 Installation](#-installation)
-  - [Configurations for each OS](#configurations-for-each-os)
-    - [MAC](#mac)
     - [Linux](#linux)
+- [FOR Linux](#for-linux)
 
 ## 📦 Structure
 ```
@@ -39,22 +38,26 @@ sudo ./install.sh
 The installer will:
 
 - Detect the operating system (macOS or Arch Linux)
-- Ensure gum and stow are installed
+- Ensure gum and other dependencies are installed (depending on the os)
 - Install a small set of core tools (zsh, neovim, etc).
 - Stow the dotfiles into $HOME
 - Apply OS-specific steps:
-  - macOS: optional Brewfile + defaults.sh
-  - Arch: optional aur packages, set default shell to zsh
-
-Note: The script uses gum for nicer prompts/spinners if available.
-It will install gum automatically before using it.
-
-## Configurations for each OS
-
-### MAC
+  - macOS
+  - Arch
 
 ### Linux
 
+# FOR Linux
+```
+zsh, oh my zsh and adjust .zshrc, eza, fzf, git, curl, neovim, fd, fzf, zoxide
+gh, lazygit, stow, mise, ffmpeg, pnpm
+unzip, zip, waybar, cloudflared, aws cli, mongodb-compass, slack, dunst,
+ firefox, obs-studio, spotify, chrome, brave, 1password, ghostty, vscode,
+ vscode-insiders, postman, discord, screen shots
+
+ -STOW
+- Requirements
+```
 
 
 
