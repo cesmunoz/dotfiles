@@ -12,3 +12,6 @@ brew install --force --cask\
   discord \
   obs \
   visual-studio-code@insiders \
+  slack \
+  docker \
+  logi-options+ \

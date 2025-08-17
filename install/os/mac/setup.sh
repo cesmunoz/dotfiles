@@ -21,4 +21,6 @@ source $REPO_INSTALL_OS_DIR/development/awscli.sh
 
 # Desktop
 source $REPO_INSTALL_OS_DIR/desktop/apps.sh
+source $REPO_INSTALL_OS_DIR/desktop/mas.sh
+source $REPO_INSTALL_OS_DIR/desktop/manual.sh
 

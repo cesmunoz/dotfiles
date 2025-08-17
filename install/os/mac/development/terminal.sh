@@ -17,3 +17,4 @@ brew install \
   ffmpeg \
   pnpm \
   cloudflared \
+  mas \

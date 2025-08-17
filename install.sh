@@ -44,16 +44,7 @@ echo -e "\n\n 🎉 Setup complete"
 echo -e "\n\n"
 
 
-# FOR MAC We need to create a later installation for later setup
-# awscli later
-# cloudflared later
-# mongodb-compass
-# slack
-# logi options +
-# Amphetamine
-# Docker
-# Autofirma
-# wazuh
+
 
 # FOR Linux
 #zsh, oh my zsh and adjust .zshrc, eza, fzf, git, curl, neovim, fd, fzf, zoxide
