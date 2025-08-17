@@ -7,7 +7,8 @@
 # - Desktop Apps
 # ------------------------------------------------------------------------------
 
-echo -e "🖥️ Welcome to the Mac os installer"
+echo -e
+gum confirm "🖥️  Welcome to the Mac OS installer. Press any key to continue." || exit 1
 
 # Configuration
 

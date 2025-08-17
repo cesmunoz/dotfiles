@@ -40,7 +40,7 @@ echo -e "Starting installation..."
 # Setup
 source $REPO_INSTALL_OS_DIR/setup.sh
 
-echo -e "\n\nSetup complete"
+echo -e "\n\n 🎉 Setup complete"
 echo -e "\n\n"
 
 
