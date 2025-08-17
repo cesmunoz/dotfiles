@@ -26,5 +26,6 @@ source $REPO_INSTALL_OS_DIR/desktop/manual.sh
 source $REPO_INSTALL_OS_DIR/desktop/wallpaper.sh
 source $REPO_INSTALL_OS_DIR/desktop/dock.sh
 source $REPO_INSTALL_OS_DIR/desktop/keyboard.sh
+source $REPO_INSTALL_OS_DIR/desktop/finder.sh
 
 
