@@ -16,3 +16,4 @@ brew install \
   mise \
   ffmpeg \
   pnpm \
+  cloudflared \
