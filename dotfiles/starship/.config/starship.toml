@@ -26,6 +26,18 @@ eu-central-1 = 'eu'
 truncation_length = 10
 truncation_symbol = ''
 
-[git_commit]
-commit_hash_length = 4
-tag_symbol = '🔖 '
+[git_status]
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
+
+[nodejs]
+format = 'via [🤖 $version](bold green) '
