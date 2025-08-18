@@ -1,13 +1,15 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = "[$directory$git_branch]($style)$character"
+
 # Inserts a blank line between shell prompts
 add_newline = false
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character]
-success_symbol = '[➜](bold green) '
-error_symbol = '[✗](bold red) '
+error_symbol = "[✗](bold red)"
+success_symbol = "[❯](bold #A5D6A7)[❯](bold #FFF59D)[❯](bold #FFAB91)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -23,21 +25,8 @@ us-east-1 = 'us'
 eu-central-1 = 'eu'
 
 [git_branch]
-truncation_length = 10
+truncation_length = 20
 truncation_symbol = ''
-
-[git_status]
-conflicted = '🏳'
-ahead = '🏎💨'
-behind = '😰'
-diverged = '😵'
-up_to_date = '✓'
-untracked = '🤷'
-stashed = '📦'
-modified = '📝'
-staged = '[++\($count\)](green)'
-renamed = '👅'
-deleted = '🗑'
 
 [nodejs]
 format = 'via [🤖 $version](bold green) '
