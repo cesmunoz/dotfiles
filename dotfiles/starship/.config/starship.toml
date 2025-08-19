@@ -30,3 +30,8 @@ truncation_symbol = ''
 
 [nodejs]
 format = 'via [🤖 $version](bold green) '
+
+[hostname]
+ssh_only = true
+format = "[$ssh_symbol](bold blue) on [$hostname](bold red) (bold green)[$directory$git_branch]($style)$character"
+disabled = false
