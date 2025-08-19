@@ -18,4 +18,5 @@ yay -S --noconfirm --needed \
   ffmpeg \
   cloudflared \
   zsh \
-  starship
+  starship \
+  tailscale

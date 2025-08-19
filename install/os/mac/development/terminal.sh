@@ -18,3 +18,4 @@ brew install \
   pnpm \
   cloudflared \
   mas \
+  tailscale
