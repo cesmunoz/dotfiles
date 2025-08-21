@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm ~/.zshrc
+
 stow --adopt --target=$HOME --dir="$REPO_DIR/dotfiles" zsh
 stow --adopt --target=$HOME --dir="$REPO_DIR/dotfiles" git
 stow --adopt --target=$HOME --dir="$REPO_DIR/dotfiles" ghostty
