@@ -1,8 +1,7 @@
-# Common stow
-source $REPO_INSTALL_DIR/stow.sh
+#!/bin/bash
 
-stow --adopt --target=$HOME --dir="$REPO_DIR/dotfiles" zsh
-stow --adopt --target=$HOME --dir="$REPO_DIR/dotfiles" git
-stow --adopt --target=$HOME --dir="$REPO_DIR/dotfiles" ghostty
-stow --adopt --target=$HOME --dir="$REPO_DIR/dotfiles" starship
-stow --adopt --target=$HOME --dir="$REPO_DIR/dotfiles" nvim
+stow --adopt --target=$HOME --dir=$DOTFILES_DIR zsh
+stow --adopt --target=$HOME --dir=$DOTFILES_DIR git
+stow --adopt --target=$HOME --dir=$DOTFILES_DIR ghostty
+stow --adopt --target=$HOME --dir=$DOTFILES_DIR starship
+stow --adopt --target=$HOME --dir=$DOTFILES_DIR nvim

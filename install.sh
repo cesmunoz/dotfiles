@@ -25,6 +25,7 @@ ascii_banner='
 OS=$(uname -s)
 REPO_DIR="${HOME}/dev/cm/dotfiles"
 INSTALL_DIR="${REPO_DIR}/install"
+DOTFILES_DIR="${REPO_DIR}/dotfiles"
 
 # Guard
 source $INSTALL_DIR/guard.sh
