@@ -19,6 +19,15 @@ if ! command -v yay &>/dev/null; then
   cd ~
 fi
 
+# Ensure git is installed
+if ! command -v git &> /dev/null; then
+  echo "git is not installed. Installing..."
+  sudo pacman -Sy --noconfirm --needed git
+  echo "git installed successfully."
+else
+  echo "git is already installed."
+fi
+
 # Ensure gum is installed
 if ! command -v gum &> /dev/null; then
   echo "gum is not installed. Installing..."
@@ -27,3 +36,4 @@ if ! command -v gum &> /dev/null; then
 else
   echo "gum is already installed."
 fi
+
