@@ -10,4 +10,6 @@ yay -S --noconfirm --needed \
   slack-desktop \
   spotify \
   brave-bin \
-  visual-studio-code-bin
+  visual-studio-code-bin \
+  thunderbird \
+  discord 
