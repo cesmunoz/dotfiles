@@ -24,21 +24,26 @@ ascii_banner='
 # Values for the installation
 OS=$(uname -s)
 REPO_DIR="${HOME}/dev/cm/dotfiles"
-REPO_INSTALL_DIR="${REPO_DIR}/install"
+INSTALL_DIR="${REPO_DIR}/install"
 
 # Guard
-source $REPO_INSTALL_DIR/guard.sh
-
-# Requirements
-REPO_INSTALL_OS_DIR="${REPO_INSTALL_DIR}/os/${OS}"
-source $REPO_INSTALL_OS_DIR/requirements.sh
+source $INSTALL_DIR/guard.sh
 
 # Start process
 echo -e "$ascii_banner"
 echo -e "Starting installation..."
 
-# Setup
-source $REPO_INSTALL_OS_DIR/setup.sh
+gum confirm "🖥️  Welcome to the ${OS} installer. Press any key to continue." || exit 1
+
+# Terminal
+INSTALLATION_OS="${INSTALL_DIR}/${OS}"
+
+source $INSTALLATION_OS/requirements.sh
+source $INSTALLATION_OS/terminal.sh
+source $INSTALLATION_OS/desktop.sh
+source $INSTALLATION_OS/stow.sh
+source $INSTALLATION_OS/system.sh
+source $INSTALLATION_OS/extra.sh
 
 echo -e "\n\n 🎉 Setup complete"
 echo -e "\n\n"

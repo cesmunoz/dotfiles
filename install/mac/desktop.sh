@@ -15,3 +15,7 @@ brew install --force --cask\
   slack \
   docker \
   logi-options+ \
+
+# App store
+AMPHETAMINE=937984704
+mas install $AMPHETAMINE
