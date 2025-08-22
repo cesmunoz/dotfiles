@@ -1,6 +1,6 @@
-[includeIf "gitdir:~/dev/cm"]
+[includeIf "gitdir:~/dev/cm/"]
   path = ~/.git-cm
-[includeIf "gitdir:~/dev/work"]
+[includeIf "gitdir:~/dev/work/"]
   path = ~/.git-work
 [core]
   autocrlf = false

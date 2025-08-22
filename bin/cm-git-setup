@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+
+gum style \
+    --foreground 45 --border-foreground 51 --border double \
+    --align center --width 50 --margin "0 0" --padding "1 4" \
+    'Git configuration'
+
+# Prompts
+name_key=$(gum input --prompt "Enter the git name key ")
+full_name=$(gum input --prompt "Enter your full name ")
+email=$(gum input --prompt "Enter your email address ")
+directory=$(gum input --prompt "Enter your git directory ")
+
+# Confirm inputs
+gum confirm "Proceed with the following?
+Name Key: $name_key
+Full Name: $full_name
+Email: $email
+Directory: $directory" || exit 1
+
+config_file="$HOME/.git-$name_key"
+
+cat > "$config_file" <<EOF
+[user]
+    name = $full_name
+    email = $email
+EOF
+
+echo "Git configuration saved to $config_file"
