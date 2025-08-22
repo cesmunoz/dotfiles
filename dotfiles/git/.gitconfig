@@ -1,7 +1,7 @@
 [includeIf "gitdir:~/dev/cm"]
-  path = ~/dev/.git-cm
+  path = ~/.git-cm
 [includeIf "gitdir:~/dev/work"]
-  path = ~/dev/.git-work
+  path = ~/.git-work
 [core]
   autocrlf = false
   eol = lf
