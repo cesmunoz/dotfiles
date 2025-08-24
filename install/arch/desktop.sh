@@ -31,7 +31,9 @@ yay -S --noconfirm --needed \
   noto-fonts-extra \
   wireplumber \
   wl-clip-persist \
-  nautilus
+  nautilus \
+  sushi \
+  wlogout
 
 if [ -d ./config/wofi ]; then
   echo "Directory ./config/wofi exists. Removing..."
