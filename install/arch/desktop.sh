@@ -15,4 +15,13 @@ yay -S --noconfirm --needed \
   discord \
   otf-font-awesome \
   wiremix \
-  pamixer
+  pamixer \
+  walker-bin
+
+if [ -d ./config/wofi ]; then
+  echo "Directory ./config/wofi exists. Removing..."
+  yay -Rns --noconfirm wofi
+  rm -rf ~/.config/wofi
+else
+  echo "Directory ./config/wofi does not exist."
+fi
