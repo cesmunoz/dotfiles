@@ -18,16 +18,10 @@
     "modules-right": [
         "mpd",
         "idle_inhibitor",
-        "pulseaudio",
         "bluetooth",
         "network",
-        "power-profiles-daemon",
+        "pulseaudio",
         "cpu",
-        "memory",
-        "temperature",
-        "backlight",
-        "keyboard-state",
-        "sway/language",
         "battery",
         "battery#bat2",
         "tray",
@@ -174,12 +168,12 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-wifi": "{signalStrength}% ",
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "interval": 3,
+        "nospacing": 1,
+        "on-click": "ghostty --class=Impala -e impala"
     },
     "bluetooth": {
         "format": "",

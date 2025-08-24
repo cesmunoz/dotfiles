@@ -22,7 +22,8 @@ sudo pacman -S --noconfirm --needed \
   docker-compose \
   bluez \
   bluez-utils \
-  bluez-deprecated-tools
+  bluez-deprecated-tools \
+  impala
 
 
 yay -S --noconfirm --needed \

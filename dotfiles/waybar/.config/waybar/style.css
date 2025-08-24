@@ -26,7 +26,13 @@
 }
 
 #bluetooth,
-#pulseaudio {
+#pulseaudio,
+#network,
+#cpu,
+#battery,
+#battery#bat2,
+#tray,
+#custom-power {
   min-width: 12px;
   margin: 0 7.5px;
 }
