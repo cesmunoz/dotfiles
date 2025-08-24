@@ -1,7 +1,8 @@
 #!/bin/bash
 
 sudo pacman -S --noconfirm --needed \
-  obs-studio
+  obs-studio \
+  hyprpaper
 
 yay -S --noconfirm --needed \
   blueberry \
@@ -17,6 +18,7 @@ yay -S --noconfirm --needed \
   wiremix \
   pamixer \
   walker-bin
+
 
 if [ -d ./config/wofi ]; then
   echo "Directory ./config/wofi exists. Removing..."
