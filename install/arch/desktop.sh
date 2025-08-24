@@ -12,4 +12,5 @@ yay -S --noconfirm --needed \
   brave-bin \
   visual-studio-code-bin \
   thunderbird \
-  discord 
+  discord \
+  otf-font-awesome
