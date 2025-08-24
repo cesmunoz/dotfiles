@@ -15,16 +15,7 @@
 
 #workspaces,
 #clock,
-#cpu {
-  background-color: #1a1b26;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
-  border-radius: 6px; /* These modules are always rounded */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  min-width: 0;
-  border: none;
-}
-
+#cpu,
 #bluetooth,
 #pulseaudio,
 #network,
@@ -32,10 +23,16 @@
 #battery,
 #battery#bat2,
 #tray,
-#custom-power {
+#custom-cm {
+  background-color: #1a1b26;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
+  border-radius: 6px; /* These modules are always rounded */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   min-width: 12px;
-  margin: 0 7.5px;
+  border: none;
 }
+
 
 #workspaces button {
   color: #babbf1;
