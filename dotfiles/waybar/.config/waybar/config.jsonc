@@ -205,7 +205,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "ghostty --class=Wiremix -e wiremix",
+        "on-click-right": "pamixer -t"
     },
     "custom/media": {
         "format": "{icon} {text}",

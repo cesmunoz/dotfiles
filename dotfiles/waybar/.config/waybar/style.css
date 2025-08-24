@@ -25,6 +25,12 @@
   border: none;
 }
 
+#bluetooth,
+#pulseaudio {
+  min-width: 12px;
+  margin: 0 7.5px;
+}
+
 #workspaces button {
   color: #babbf1;
   border-radius: 5px; /* Workspaces buttons are always rounded */

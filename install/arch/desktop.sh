@@ -13,4 +13,6 @@ yay -S --noconfirm --needed \
   visual-studio-code-bin \
   thunderbird \
   discord \
-  otf-font-awesome
+  otf-font-awesome \
+  wiremix \
+  pamixer
