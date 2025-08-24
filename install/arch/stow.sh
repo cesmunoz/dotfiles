@@ -7,3 +7,4 @@ stow -v -t $HOME -d $DOTFILES_DIR starship
 stow -v -t $HOME -d $DOTFILES_DIR nvim
 stow -v -t $HOME -d $DOTFILES_DIR hypr
 stow -v -t $HOME -d $DOTFILES_DIR waybar
+stow -v -t $HOME -d $DOTFILES_DIR mise

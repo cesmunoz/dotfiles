@@ -2,7 +2,8 @@
 
 sudo pacman -S --noconfirm --needed \
   obs-studio \
-  hyprpaper
+  hyprpaper \
+  xdg-desktop-portal-hyprland
 
 yay -S --noconfirm --needed \
   blueberry \
@@ -17,8 +18,20 @@ yay -S --noconfirm --needed \
   otf-font-awesome \
   wiremix \
   pamixer \
-  walker-bin
-
+  walker-bin \
+  ttf-cascadia-code \
+  ttf-cascadia-code-nerd \
+  ttf-font-awesome \
+  ttf-cascadia-mono-nerd \
+  ttf-ia-writer \
+  noto-fonts \
+  noto-fonts-emoji \
+  ttf-jetbrains-mono \
+  noto-fonts-cjk \
+  noto-fonts-extra \
+  wireplumber \
+  wl-clip-persist \
+  nautilus
 
 if [ -d ./config/wofi ]; then
   echo "Directory ./config/wofi exists. Removing..."
