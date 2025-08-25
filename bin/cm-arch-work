@@ -1,11 +1,28 @@
 #!/bin/bash
 # Usage: cm-arch-work
 
+
+gum style \
+    --foreground 45 --border-foreground 51 --border double \
+    --align center --width 50 --margin "0 0" --padding "1 4" \
+    'WORK CONFIGURATION'
+
+gum log --level info "Setup profile and go to directory"
 export AWS_DEFAULT_PROFILE=fs-dev
 cd ~/dev/work/feed
+
+gum log --level info "Change browser to chrome"
 cm-arch-browser work
+
+gum log --level info "Login aws"
 aws sso login
+
+gum log --level info "Change browser to brave"
 cm-arch-browser cm
+
+gum log --level info "Open code editor"
 code .
+
+gum log --level info "Install dependencies and run app"
 ./bin/setup
 LOGGER_DEFAULT_LEVEL=error ./bin/start-no-docker
