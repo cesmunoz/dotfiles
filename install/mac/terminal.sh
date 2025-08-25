@@ -15,7 +15,8 @@ brew install \
   pnpm \
   cloudflared \
   mas \
-  tailscale
+  tailscale \
+  starship
 
 
 # Oh my zsh
@@ -29,13 +30,6 @@ fi
 rm -rf ~/.config/nvim
 git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 rm ~/.config/nvim/init.lua
-
-# Starship
-if ! command -v starship &> /dev/null; then
-  curl -sS https://starship.rs/install.sh | sh
-else
-  echo "Starship is already installed"
-fi
 
 # AWS cli
 if ! command -v aws &> /dev/null; then

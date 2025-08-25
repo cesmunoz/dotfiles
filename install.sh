@@ -34,12 +34,13 @@ source $INSTALL_DIR/guard.sh
 echo -e "$ascii_banner"
 echo -e "Starting installation..."
 
-gum confirm "🖥️  Welcome to the ${OS} installer. Press any key to continue." || exit 1
-
 # Terminal
 INSTALLATION_OS="${INSTALL_DIR}/${OS}"
 
 source $INSTALLATION_OS/requirements.sh
+
+gum confirm "🖥️  Welcome to the ${OS} installer. Press any key to continue." || exit 1
+
 source $INSTALLATION_OS/terminal.sh
 source $INSTALLATION_OS/desktop.sh
 source $INSTALLATION_OS/stow.sh

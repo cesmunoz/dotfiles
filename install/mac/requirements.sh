@@ -23,3 +23,9 @@ if ! command -v gum &> /dev/null; then
 else
   echo "gum is already installed."
 fi
+
+if pkgutil --pkg-info=com.apple.pkg.RosettaUpdateAuto &> /dev/null; then
+  echo "Rosetta 2 is installed"
+else
+  sudo softwareupdate --install-rosetta
+fi
