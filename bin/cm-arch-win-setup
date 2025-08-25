@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+gum style \
+    --foreground 45 --border-foreground 51 --border double \
+    --align center --width 50 --margin "0 0" --padding "1 4" \
+    'Arch Win Dual Boot Finishing Setup'
+
+sudo pacman -S os-prober
+# Need to adjust what to change in the /etc/default/grub file
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
