@@ -1,0 +1,42 @@
+#!/bin/bash
+# Usage: cm-git-worktree [work|cm]
+# Sets the default git worktree based on the argument
+
+set -e
+
+if [ $# -lt 1 ]; then
+  gum style --foreground 196 "Usage: $0 <branch-name>"
+  gum style --foreground 244 "Example: $0 hotfix-stuff"
+  exit 1
+fi
+
+BRANCH=$1
+DIR="../$BRANCH"
+
+# Confirm before creating
+gum confirm "Create worktree for branch '$BRANCH' at '$DIR'?" || exit 0
+
+gum style --foreground 39 "📡 Fetching origin..."
+git fetch origin
+
+# Create branch locally if it doesn’t exist
+if git show-ref --verify --quiet refs/heads/$BRANCH; then
+  gum style --foreground 82 "✅ Branch '$BRANCH' already exists locally"
+else
+  gum style --foreground 214 "ℹ️ Creating branch '$BRANCH' from origin/master"
+  git branch "$BRANCH" origin/master
+fi
+
+# Add worktree
+gum spin --spinner line --title "📂 Creating worktree at $DIR" -- \
+  git worktree add "$DIR" "$BRANCH"
+
+cd "$DIR"
+
+# Run setup
+gum spin --spinner dot --title "⚙️ Running ./bin/setup" -- \
+  ./bin/setup
+
+# Run start script
+gum spin --spinner dot --title "🚀 Starting ./bin/start-no-docker" -- \
+  LOGGER_DEFAULT_LEVEL=error ./bin/start-no-docker

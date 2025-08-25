@@ -39,7 +39,8 @@ yay -S --noconfirm --needed \
   nautilus \
   sushi \
   wlogout \
-  waybar
+  waybar \
+  hyprshot
 
 if [ -d ./config/wofi ]; then
   echo "Directory ./config/wofi exists. Removing..."
