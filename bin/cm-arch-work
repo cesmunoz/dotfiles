@@ -1,0 +1,11 @@
+#!/bin/bash
+# Usage: cm-arch-work
+
+export AWS_DEFAULT_PROFILE=fs-dev
+cd ~/dev/work/feed
+cm-arch-browser work
+aws sso login
+cm-arch-browser cm
+code .
+./bin/setup
+LOGGER_DEFAULT_LEVEL=error ./bin/start-no-docker

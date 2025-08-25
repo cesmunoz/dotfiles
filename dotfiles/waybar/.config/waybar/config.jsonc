@@ -187,6 +187,6 @@
     "custom/cm": {
         "format": "",
         "tooltip": false,
-		"on-click": "ghostty --class=CM sh /home/ces/dev/cm/dotfiles/bin/cm-menu",
+		"on-click": "ghostty --class=CM sh /home/ces/dev/cm/dotfiles/bin/cm-arch-menu",
     }
 }
