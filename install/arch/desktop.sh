@@ -3,7 +3,12 @@
 sudo pacman -S --noconfirm --needed \
   obs-studio \
   hyprpaper \
-  xdg-desktop-portal-hyprland
+  xdg-desktop-portal-hyprland \
+  pipewire \
+  pipewire-audio \
+  pipewire-pulse \
+  pipewire-alsa \
+  wireplumber
 
 yay -S --noconfirm --needed \
   blueberry \
