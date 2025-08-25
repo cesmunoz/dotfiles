@@ -7,6 +7,7 @@ osascript -e "tell application \"System Events\" to set picture of every desktop
 # Dock
 defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock tilesize -int 30
 killall Dock
 
 
@@ -16,6 +17,20 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+
+# Allow finder to quit
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# New Finder windows open with the Desktop as the target
+defaults write com.apple.finder NewWindowTarget -string "PfDe"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+
+# Show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Show path
+defaults write com.apple.finder ShowPathbar -bool true
+
 killall Finder
 
 # Keyboard

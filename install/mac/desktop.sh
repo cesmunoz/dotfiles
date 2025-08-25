@@ -13,8 +13,13 @@ brew install --force --cask\
   obs \
   visual-studio-code@insiders \
   slack \
-  docker \
-  logi-options+ \
+  docker
+
+cd $HOME
+
+brew install --force --cask logi-options+
+
+cd $HOME/dev/cm/dotfiles
 
 # App store
 AMPHETAMINE=937984704
