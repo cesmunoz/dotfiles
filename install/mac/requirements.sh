@@ -33,3 +33,12 @@ if pkgutil --pkg-info=com.apple.pkg.RosettaUpdateAuto &> /dev/null; then
 else
   sudo softwareupdate --install-rosetta
 fi
+
+# Ensure mas is installed
+if ! command -v mas &> /dev/null; then
+  echo "mas is not installed. Installing..."
+  brew install mas
+  echo "mas installed successfully"
+else
+  echo "mas is already installed."
+fi

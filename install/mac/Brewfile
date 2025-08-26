@@ -1,0 +1,39 @@
+# Taps
+
+
+# Terminal
+brew "gum"
+brew "git"
+brew "curl"
+brew "neovim"
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "zoxide"
+brew "gh"
+brew "lazygit"
+brew "stow"
+brew "mise"
+brew "pnpm"
+brew "cloudflared"
+brew "mas"
+brew "tailscale"
+brew "starship"
+
+# Desktop
+cask "raycast"
+cask "google-chrome"
+cask "brave-browser"
+cask "1password"
+cask "ghostty"
+cask "visual-studio-code"
+cask "postman"
+cask "spotify"
+cask "discord"
+cask "obs"
+cask "visual-studio-code@insiders"
+cask "slack"
+cask "docker"
+
+# Mas
+mas "Amphetamine", id: 937984704

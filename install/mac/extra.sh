@@ -1,5 +1,8 @@
 #!/bin/bash
 
+gum log --level info "Setup Extra"
+
+
 # Title
 gum style \
     --foreground 45 --border-foreground 51 --border double \
@@ -77,3 +80,13 @@ gum style \
     '• Set up wake up app'
 
 gum confirm "Did you finish Amphetamine configuration?"
+
+# Mac
+gum style \
+    --foreground 39 --border-foreground 75 --border double \
+    --align left --width 50 --margin "0 0" --padding "1 4" \
+    'Mac Configuration' \
+    '' \
+    '• Show percentage on battery' \
+
+gum confirm "Did you finish Raycast configuration?"

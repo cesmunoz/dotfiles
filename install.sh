@@ -31,21 +31,19 @@ DOTFILES_DIR="${REPO_DIR}/dotfiles"
 source $INSTALL_DIR/guard.sh
 
 # Start process
-echo -e "$ascii_banner"
-echo -e "Starting installation..."
+echo "$ascii_banner"
+echo "Starting installation..."
 
-# Terminal
+# Installation
 INSTALLATION_OS="${INSTALL_DIR}/${OS}"
-
 source $INSTALLATION_OS/requirements.sh
 
-gum confirm "🖥️  Welcome to the ${OS} installer. Press any key to continue." || exit 1
+gum confirm "🖥️  Welcome to the ${OS} installer. Press any key to continue."
 
 source $INSTALLATION_OS/terminal.sh
 source $INSTALLATION_OS/desktop.sh
-source $INSTALLATION_OS/stow.sh
-source $INSTALLATION_OS/system.sh
+source $INSTALLATION_OS/config.sh
 source $INSTALLATION_OS/extra.sh
 
-echo -e "\n\n 🎉 Setup complete"
-echo -e "\n\n"
+echo "\n\n 🎉 Setup complete"
+echo "\n\n"

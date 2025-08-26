@@ -1,23 +1,6 @@
 #!/bin/bash
 
-brew install \
-  git \
-  curl \
-  neovim \
-  eza \
-  fd \
-  fzf \
-  zoxide \
-  gh \
-  lazygit \
-  stow \
-  mise \
-  pnpm \
-  cloudflared \
-  mas \
-  tailscale \
-  starship
-
+gum log --level info "Setup Terminal"
 
 # Oh my zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
@@ -27,9 +10,11 @@ else
 fi
 
 # Kickstart neovim
-rm -rf ~/.config/nvim
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-rm ~/.config/nvim/init.lua
+if [ -d "$HOME/.config/nvim" ]; then
+  echo "Oh My Zsh is already installed."
+else
+  git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+fi
 
 # AWS cli
 if ! command -v aws &> /dev/null; then
