@@ -23,7 +23,9 @@ if [[ "$1" == "start" ]]; then
     gum log --level info "Open code editor"
     code .
 
-    gum log --level info "Install dependencies and run app"
+    gum log --level info "Install dependencies"
     ./bin/setup
-    LOGGER_DEFAULT_LEVEL=error ./bin/start-no-docker
 fi
+
+gum log --level info "Run the application"
+LOGGER_DEFAULT_LEVEL=error ./bin/start-no-docker
