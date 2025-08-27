@@ -26,7 +26,3 @@ if ! command -v aws &> /dev/null; then
 else
   echo "AWS CLI is already installed."
 fi
-
-# Git
-git config --global credential.helper "/opt/homebrew/bin/gh auth git-credential"
-

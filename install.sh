@@ -43,6 +43,7 @@ gum confirm "🖥️  Welcome to the ${OS} installer. Press any key to continue.
 source $INSTALLATION_OS/terminal.sh
 source $INSTALLATION_OS/desktop.sh
 source $INSTALLATION_OS/config.sh
+source $INSTALLATION_OS/system.sh
 source $INSTALLATION_OS/extra.sh
 
 echo "\n\n 🎉 Setup complete"
