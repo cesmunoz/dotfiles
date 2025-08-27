@@ -1,0 +1,30 @@
+#!/bin/bash
+# Usage: cm-mac-browser [work|cm]
+# Sets the default browser based on the argument
+
+set_browser() {
+    local browser_desktop="$1"
+    defaultbrowser "$browser_desktop"
+
+    gum confirm "Continue?" || exit 1
+    
+    if [ $? -eq 0 ]; then
+        echo "Default browser set to $browser_desktop"
+    else
+        echo "Failed to set default browser." >&2
+        exit 1
+    fi
+}
+
+case "$1" in
+    work)
+        set_browser "chrome"
+        ;;
+    cm)
+        set_browser "browser"
+        ;;
+    *)
+        echo "Usage: $0 [work|cm]" >&2
+        exit 1
+        ;;
+esac

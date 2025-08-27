@@ -19,6 +19,7 @@ brew "cloudflared"
 brew "mas"
 brew "tailscale"
 brew "starship"
+brew "defaultbrowser"
 
 # Desktop
 cask "raycast"
