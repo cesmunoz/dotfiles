@@ -18,9 +18,3 @@
   whoaminame = config user.name
   aliases = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#"
   amountdiff = "!git diff --shortstat --ignore-all-space origin/master | grep -o -E '[0-9]+' | sed -n '2 p'"
-[credential "https://github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
