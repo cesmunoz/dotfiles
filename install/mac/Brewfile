@@ -36,6 +36,7 @@ cask "visual-studio-code@insiders"
 cask "slack"
 cask "docker"
 cask "mongodb-compass"
+cask "font-cascadia-code"
 
 # Mas
 mas "Amphetamine", id: 937984704
