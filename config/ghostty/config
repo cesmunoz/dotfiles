@@ -1,1 +1,10 @@
-theme = Dracula
+# ─── Theme ──────────────────────────────────────────────
+theme = "dracula"
+
+# ─── Keybinds ───────────────────────────────────────────
+keybind = global:§=toggle_quick_terminal
+
+
+# ─── Quickterminal ───────────────────────────────────────────
+quick-terminal-animation-duration = 0
+quick-terminal-position = top
