@@ -8,7 +8,8 @@ sudo pacman -S --noconfirm --needed \
   pipewire-audio \
   pipewire-pulse \
   pipewire-alsa \
-  wireplumber
+  wireplumber \
+  gnupg
 
 yay -S --noconfirm --needed \
   blueberry \
