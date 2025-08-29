@@ -1,9 +1,12 @@
 #!/bin/bash
 
-# - Check yay is installed
-
 # Git
-gh auth setup-git
+if gh auth status > /dev/null 2>&1; then
+  echo "Authenticated"
+  gh auth setup-git
+else
+  echo "Not authenticated or error"
+fi
 
 # Bluetooth
 sudo systemctl enable --now bluetooth

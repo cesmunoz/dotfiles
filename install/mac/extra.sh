@@ -9,6 +9,18 @@ gum style \
     --align center --width 50 --margin "0 0" --padding "1 4" \
     'Manual Installation'
 
+# Git
+gum style \
+    --foreground 39 --border-foreground 75 --border double \
+    --align left --width 50 --margin "0 0" --padding "1 4" \
+    'Git Configuration' \
+    '' \
+    '• Login into an account' \
+    '• Execute Git command: gh auth login' \
+    '• Execute Git command: gh auth setup-git' \
+
+gum confirm "Did you finish Git configuration?"
+
 # Raycast
 gum style \
     --foreground 39 --border-foreground 75 --border double \
