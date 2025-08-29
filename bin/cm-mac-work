@@ -8,7 +8,6 @@ gum style \
 
 gum log --level info "Setup profile and go to directory"
 export AWS_DEFAULT_PROFILE=fs-dev
-cd ~/dev/work/feed
 
 gum log --level info "Change browser to chrome"
 cm-mac-browser work
@@ -18,6 +17,8 @@ aws sso login
 
 gum log --level info "Change browser to brave"
 cm-mac-browser cm
+
+cd $HOME/dev/work/feed/
 
 if [[ "$1" == "start" ]]; then
     gum log --level info "Open code editor"

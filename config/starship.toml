@@ -24,10 +24,6 @@ symbol = '🅰 '
 us-east-1 = 'us'
 eu-central-1 = 'eu'
 
-[git_branch]
-truncation_length = 20
-truncation_symbol = ''
-
 [nodejs]
 format = 'via [🤖 $version](bold green) '
 

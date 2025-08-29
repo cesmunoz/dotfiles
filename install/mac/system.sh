@@ -3,6 +3,8 @@
 # Git
 git config --global credential.helper "/opt/homebrew/bin/gh auth git-credential"
 
+gh auth setup-git
+
 # WALLPAPER
 WALLPAPER_PATH="$REPO_DIR/images/wallpaper.jpeg"
 osascript -e "tell application \"System Events\" to set picture of every desktop to \"$WALLPAPER_PATH\""
