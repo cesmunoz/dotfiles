@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Git
-git config --global credential.helper "/opt/homebrew/bin/gh auth git-credential"
-
 gh auth setup-git
 
 # WALLPAPER

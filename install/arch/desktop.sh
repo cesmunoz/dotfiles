@@ -24,6 +24,15 @@ yay -S --noconfirm --needed \
   wiremix \
   pamixer \
   walker-bin \
+  wl-clip-persist \
+  nautilus \
+  sushi \
+  wlogout \
+  waybar \
+  hyprshot \
+
+# FONTS
+yay -S --noconfirm --needed \
   ttf-cascadia-code \
   ttf-cascadia-code-nerd \
   ttf-font-awesome \
@@ -33,15 +42,10 @@ yay -S --noconfirm --needed \
   noto-fonts-emoji \
   ttf-jetbrains-mono \
   noto-fonts-cjk \
-  noto-fonts-extra \
-  wireplumber \
-  wl-clip-persist \
-  nautilus \
-  sushi \
-  wlogout \
-  waybar \
-  hyprshot
+  noto-fonts-extra
 
+
+# Wofi
 if [ -d ./config/wofi ]; then
   echo "Directory ./config/wofi exists. Removing..."
   yay -Rns --noconfirm wofi
@@ -49,16 +53,3 @@ if [ -d ./config/wofi ]; then
 else
   echo "Directory ./config/wofi does not exist."
 fi
-
-
-
-# Bluetooth
-sudo systemctl enable --now bluetooth
-
-# Tailscaled
-sudo systemctl enable --now tailscaled
-
-# Pipewire
-systemctl --user enable --now pipewire.service
-systemctl --user enable --now pipewire-pulse.service
-systemctl --user enable --now wireplumber.service

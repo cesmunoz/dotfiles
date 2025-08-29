@@ -25,10 +25,8 @@ sudo pacman -S --noconfirm --needed \
   bluez-deprecated-tools \
   impala
 
-
 yay -S --noconfirm --needed \
   lazydocker-bin
-
 
 # Oh my zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
@@ -47,9 +45,11 @@ else
 fi
 
 # Kickstart Neovim
-rm -rf ~/.config/nvim
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-rm ~/.config/nvim/init.lua
+if [ -d "$HOME/.config/nvim" ]; then
+  echo "Oh My Zsh is already installed."
+else
+  git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+fi
 
 # AWS cli
 if ! command -v aws &> /dev/null; then

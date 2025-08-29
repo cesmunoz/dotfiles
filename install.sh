@@ -4,9 +4,9 @@ set -e
 # ------------------------------------------------------------------------------
 # Dotfiles installer
 # - Detects OS (macOS vs Arch Linux)
-# - Ensures gum + stow + core CLI tools
-# - Stows common + OS-specific dotfiles
-# - Applies per-OS steps (brew defaults on mac, yay + chsh on Arch)
+# - Ensures gum + git + core CLI tools
+# - Copy config files + OS-specific dotfiles
+# - Applies per-OS steps (brew defaults on mac, yay on Arch)
 # ------------------------------------------------------------------------------
 
 ascii_banner='
