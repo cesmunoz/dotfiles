@@ -1,5 +1,5 @@
 # ─── Theme ──────────────────────────────────────────────
-theme = "dracula"
+theme = "Dracula+"
 
 # ─── Keybinds ───────────────────────────────────────────
 keybind = global:§=toggle_quick_terminal
