@@ -7,13 +7,8 @@ set_browser() {
     defaultbrowser "$browser_desktop"
 
     gum confirm "Continue?" || exit 1
-    
-    if [ $? -eq 0 ]; then
-        echo "Default browser set to $browser_desktop"
-    else
-        echo "Failed to set default browser." >&2
-        exit 1
-    fi
+
+    echo "Default browser set to $browser_desktop"
 }
 
 case "$1" in

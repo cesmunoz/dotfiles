@@ -11,8 +11,6 @@
   pb = "!git push origin $(git branch --show-current)"
   pbn = "!git push origin $(git branch --show-current) --no-verify"
   l1000 = log --pretty=oneline -n 1000 --graph --abbrev-commit
-  pb = "!git push origin $(git branch --show-current)"
-  pbn = "!git push origin $(git branch --show-current) --no-verify"
   branches = branch --all
   whoami = config user.email
   whoaminame = config user.name
