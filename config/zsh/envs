@@ -1,5 +1,2 @@
 # Editor used by CLI
 export EDITOR="cursor"
-
-# Export Path of CM
-export PATH="$HOME/dev/cm/dotfiles/bin:$PATH"
