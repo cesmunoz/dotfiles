@@ -12,7 +12,6 @@ sudo pacman -S --noconfirm --needed \
   gnupg
 
 yay -S --noconfirm --needed \
-  blueberry \
   ghostty \
   google-chrome \
   slack-desktop \

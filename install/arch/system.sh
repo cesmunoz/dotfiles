@@ -9,7 +9,7 @@ else
 fi
 
 # Bluetooth
-sudo systemctl enable --now bluetooth
+sudo systemctl enable --now bluetooth.service
 
 # Tailscaled
 sudo systemctl enable --now tailscaled

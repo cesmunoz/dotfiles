@@ -23,6 +23,7 @@ sudo pacman -S --noconfirm --needed \
   bluez \
   bluez-utils \
   bluez-deprecated-tools \
+  bluetui \
   impala
 
 yay -S --noconfirm --needed \
