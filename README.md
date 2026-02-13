@@ -10,6 +10,7 @@ In the Cross-platform we will have some common tools and tools/apps/configuratio
 - [Table of Contents](#table-of-contents)
   - [📦 Structure](#-structure)
   - [🚀 Installation](#-installation)
+- [On Arch](#on-arch)
     - [Linux](#linux)
 - [FOR Linux](#for-linux)
 
@@ -27,6 +28,9 @@ In the Cross-platform we will have some common tools and tools/apps/configuratio
 ## 🚀 Installation
 
 Clone the repo into `~/dev`:
+
+# On Arch
+first do `sudo pacman -Sy --noconfirm --needed git`
 
 ```bash
 mkdir -p ~/dev/cm
