@@ -30,8 +30,6 @@ In the Cross-platform we will have some common tools and tools/apps/configuratio
 Clone the repo into `~/dev`:
 
 # On Arch
-first do `sudo pacman -Sy --noconfirm --needed git`
-
 ```bash
 mkdir -p ~/dev/cm
 git clone https://github.com/cesmunoz/dotfiles.git ~/dev/cm/dotfiles

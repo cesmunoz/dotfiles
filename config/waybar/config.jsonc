@@ -7,7 +7,6 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "custom/cm",
         "hyprland/workspaces",
         "hyprland/submap",
     ],
@@ -184,10 +183,5 @@
         "format" : "⏻ ",
 		"tooltip": false,
 		"on-click": "wlogout",
-    },
-    "custom/cm": {
-        "format": "",
-        "tooltip": false,
-		"on-click": "ghostty --class=CM cm-arch-menu",
     }
 }

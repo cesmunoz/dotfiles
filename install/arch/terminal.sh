@@ -12,7 +12,6 @@ sudo pacman -S --noconfirm --needed \
   zoxide \
   github-cli \
   lazygit \
-  stow \
   mise \
   cloudflared \
   zsh \

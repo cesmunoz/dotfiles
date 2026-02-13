@@ -7,5 +7,7 @@ gum style \
     'Arch Win Dual Boot Finishing Setup'
 
 sudo pacman -S os-prober
-# Need to adjust what to change in the /etc/default/grub file
-# sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+## Need to adjust the GRUB_DISABLE_OS_PROBER=false
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg
