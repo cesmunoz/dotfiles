@@ -1,6 +1,5 @@
 # Taps
 
-
 # Terminal
 brew "gum"
 brew "git"
@@ -37,6 +36,11 @@ cask "slack"
 cask "docker"
 cask "mongodb-compass"
 cask "font-cascadia-code"
+cask "claude-code"
+cask "cursor"
+cask "notion"
+cask "notion-calendar"
+cask "zed"
 
 # Mas
 mas "Amphetamine", id: 937984704
