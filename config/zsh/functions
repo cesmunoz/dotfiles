@@ -3,5 +3,14 @@ function workenv() {
   export AWS_DEFAULT_PROFILE=$1
 }
 
+function prr() {
+  if [ -z "$1" ]; then
+    echo "Usage: prr <PR_URL>"
+    return 1
+  fi
+
+  plannotator review "$1"
+}
+
 ## AWS
 alias awswhoami="aws sts get-caller-identity";
