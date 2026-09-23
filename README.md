@@ -43,9 +43,23 @@ The installer will:
 - Ensure gum and other dependencies are installed (depending on the os)
 - Install a small set of core tools (zsh, neovim, etc).
 - Stow the dotfiles into $HOME
+- Link the `cm` CLI into `~/.local/bin/cm`
 - Apply OS-specific steps:
   - macOS
   - Arch
+
+## CLI
+
+```bash
+cm help      # Show commands
+cm init      # Run the full installer
+cm config    # Sync dotfiles configuration into $HOME
+cm doctor    # Check required tools and repo state
+cm update    # Pull latest dotfiles changes
+cm link      # Link cm into ~/.local/bin/cm
+cm edit      # Open the repo in $EDITOR
+cm path      # Print the repo path
+```
 
 ### Linux
 

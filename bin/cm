@@ -1,0 +1,149 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SOURCE="${BASH_SOURCE[0]}"
+while [[ -L "$SOURCE" ]]; do
+  SOURCE_DIR="$(cd "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ "$SOURCE" != /* ]] && SOURCE="$SOURCE_DIR/$SOURCE"
+done
+
+CM_BIN_DIR="$(cd "$(dirname "$SOURCE")" && pwd)"
+REPO_DIR="$(cd "${CM_BIN_DIR}/.." && pwd)"
+INSTALL_DIR="${REPO_DIR}/install"
+
+usage() {
+  cat <<'EOF'
+Usage: cm <command>
+
+Commands:
+  init        Run the full dotfiles installer
+  config      Sync dotfiles configuration into $HOME
+  doctor      Check required tools and repository state
+  update      Pull latest dotfiles changes
+  link        Link this CLI to ~/.local/bin/cm
+  edit        Open the dotfiles repo in $EDITOR
+  path        Print the dotfiles repo path
+  help        Show this help
+EOF
+}
+
+log() {
+  printf 'cm: %s\n' "$*"
+}
+
+fail() {
+  printf 'cm: error: %s\n' "$*" >&2
+  exit 1
+}
+
+detect_os() {
+  case "$(uname -s)" in
+    Darwin) printf 'mac' ;;
+    Linux)
+      if command -v pacman >/dev/null 2>&1; then
+        printf 'arch'
+      else
+        fail 'unsupported Linux distribution'
+      fi
+      ;;
+    *) fail 'unsupported operating system' ;;
+  esac
+}
+
+require_command() {
+  if command -v "$1" >/dev/null 2>&1; then
+    printf '✓ %s\n' "$1"
+  else
+    printf '✗ %s missing\n' "$1"
+    return 1
+  fi
+}
+
+cmd_init() {
+  cd "$REPO_DIR"
+  exec "$REPO_DIR/install.sh"
+}
+
+cmd_config() {
+  local os
+  os="$(detect_os)"
+  export REPO_DIR INSTALL_DIR
+  # shellcheck source=/dev/null
+  source "$INSTALL_DIR/$os/config.sh"
+}
+
+cmd_doctor() {
+  local failed=0 os
+  os="$(detect_os)"
+
+  log "repo: $REPO_DIR"
+  log "os: $os"
+
+  require_command git || failed=1
+  require_command gh || failed=1
+  require_command zsh || failed=1
+  require_command nvim || failed=1
+  require_command mise || failed=1
+  require_command starship || failed=1
+
+  if [[ "$os" == "mac" ]]; then
+    require_command brew || failed=1
+  else
+    require_command pacman || failed=1
+    require_command yay || failed=1
+  fi
+
+  if git -C "$REPO_DIR" diff --quiet && git -C "$REPO_DIR" diff --cached --quiet; then
+    printf '✓ git tree clean\n'
+  else
+    printf '! git tree has local changes\n'
+  fi
+
+  if [[ -x "$REPO_DIR/bin/cm" ]]; then
+    printf '✓ bin/cm executable\n'
+  else
+    printf '✗ bin/cm is not executable\n'
+    failed=1
+  fi
+
+  return "$failed"
+}
+
+cmd_update() {
+  git -C "$REPO_DIR" pull --ff-only
+}
+
+cmd_link() {
+  mkdir -p "$HOME/.local/bin"
+  ln -sf "$REPO_DIR/bin/cm" "$HOME/.local/bin/cm"
+  log "linked ~/.local/bin/cm -> $REPO_DIR/bin/cm"
+}
+
+cmd_edit() {
+  local editor="${EDITOR:-}"
+  if [[ -z "$editor" ]]; then
+    if command -v zed >/dev/null 2>&1; then
+      editor='zed'
+    elif command -v code >/dev/null 2>&1; then
+      editor='code'
+    else
+      editor="${VISUAL:-vi}"
+    fi
+  fi
+
+  cd "$REPO_DIR"
+  exec $editor .
+}
+
+case "${1:-help}" in
+  init) cmd_init ;;
+  config|sync|stow) cmd_config ;;
+  doctor) cmd_doctor ;;
+  update) cmd_update ;;
+  link) cmd_link ;;
+  edit) cmd_edit ;;
+  path) printf '%s\n' "$REPO_DIR" ;;
+  help|-h|--help) usage ;;
+  *) usage >&2; fail "unknown command: $1" ;;
+esac
