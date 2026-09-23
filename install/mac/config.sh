@@ -26,6 +26,25 @@ cp -R ~/dev/cm/dotfiles/config/.zshrc ~/.zshrc
 
 mkdir -p "$HOME/.pi/agent/extensions"
 cp -R "$REPO_DIR/config/pi/agent/extensions/compact-footer.ts" "$HOME/.pi/agent/extensions/compact-footer.ts"
+cp -R "$REPO_DIR/config/pi/agent/open-project-editor.sh" "$HOME/.pi/agent/open-project-editor.sh"
+chmod +x "$HOME/.pi/agent/open-project-editor.sh"
+
+if command -v node &> /dev/null; then
+  node - "$HOME/.pi/agent/settings.json" "$HOME/.pi/agent/open-project-editor.sh" <<'NODE'
+const fs = require("fs");
+const [settingsPath, externalEditor] = process.argv.slice(2);
+let settings = {};
+
+if (fs.existsSync(settingsPath)) {
+  settings = JSON.parse(fs.readFileSync(settingsPath, "utf8"));
+}
+
+settings.externalEditor = externalEditor;
+fs.writeFileSync(settingsPath, `${JSON.stringify(settings, null, 2)}\n`);
+NODE
+else
+  gum log --level warn "node not found; skipped Pi externalEditor setting"
+fi
 
 mkdir -p "$HOME/.local/bin"
 ln -sf "$REPO_DIR/bin/cm" "$HOME/.local/bin/cm"
