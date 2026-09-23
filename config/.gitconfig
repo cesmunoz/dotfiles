@@ -5,6 +5,12 @@
 [core]
   autocrlf = false
   eol = lf
+[credential "https://github.com"]
+  helper =
+  helper = !/Users/ces/.local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper =
+  helper = !/Users/ces/.local/bin/gh auth git-credential
 [alias]
   stsu = stash save -u
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
