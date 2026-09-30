@@ -45,6 +45,3 @@ NODE
 else
   gum log --level warn "node not found; skipped Pi externalEditor setting"
 fi
-
-mkdir -p "$HOME/.local/bin"
-ln -sf "$REPO_DIR/bin/cm" "$HOME/.local/bin/cm"

@@ -1,79 +1,75 @@
 # Dotfiles
 
-This repo contains my dotfiles and all the configurations I use on my computers.
-Here we have the configuration for Mac and Arch linux.
+Personal dotfiles for macOS and Omarchy.
 
-In the Cross-platform we will have some common tools and tools/apps/configuration specific to each OS
+The Linux profile now targets **Omarchy**, not a generic Arch Linux install. Omarchy owns the desktop stack, so this repo avoids installing or overwriting Waybar, Hyprland base files, Hyprpaper, PipeWire, Walker, Wlogout, Wofi, Hyprshot, fonts, and Nautilus.
 
-# Table of Contents
-- [Dotfiles](#dotfiles)
-- [Table of Contents](#table-of-contents)
-  - [📦 Structure](#-structure)
-  - [🚀 Installation](#-installation)
-- [On Arch](#on-arch)
-    - [Linux](#linux)
-- [FOR Linux](#for-linux)
+## Structure
 
-## 📦 Structure
+```text
+install/
+  mac/
+  omarchy/
+config/
+  ghostty/
+  hypr/        # Omarchy-compatible personal overrides
+  mise/
+  nvim/
+  pi/
+  zsh/
 ```
-~/.dotfiles
-├── dotfiles
-├── install/
-    ├── os/
-    │   ├── mac/
-    │   ├── arch/
-```
----
 
-## 🚀 Installation
+## Install
 
-Clone the repo into `~/dev`:
+Clone the repo into the expected path:
 
-# On Arch
 ```bash
 mkdir -p ~/dev/cm
 git clone https://github.com/cesmunoz/dotfiles.git ~/dev/cm/dotfiles
 cd ~/dev/cm/dotfiles
-sudo ./install.sh
+./install.sh
 ```
 
-The installer will:
+Do **not** run the installer with `sudo`; scripts call `sudo` only where needed.
 
-- Detect the operating system (macOS or Arch Linux)
-- Ensure gum and other dependencies are installed (depending on the os)
-- Install a small set of core tools (zsh, neovim, etc).
-- Stow the dotfiles into $HOME
-- Link the `cm` CLI into `~/.local/bin/cm`
-- Apply OS-specific steps:
-  - macOS
-  - Arch
+## Omarchy profile
 
-## CLI
+The Omarchy installer keeps the system close to Omarchy defaults and only adds personal preferences.
 
-```bash
-cm help      # Show commands
-cm init      # Run the full installer
-cm config    # Sync dotfiles configuration into $HOME
-cm doctor    # Check required tools and repo state
-cm update    # Pull latest dotfiles changes
-cm link      # Link cm into ~/.local/bin/cm
-cm edit      # Open the repo in $EDITOR
-cm path      # Print the repo path
-```
+Installs/configures:
 
-### Linux
+- Ghostty
+- Chrome
+- Brave
+- Spotify
+- VS Code
+- Zed
+- Slack as an Omarchy web app
+- Git/GitHub CLI integration when authenticated
+- Tailscale when installed
+- personal configs: Git, Starship, Ghostty, Mise, Zsh files, Pi agent config
 
-# FOR Linux
-```
-zsh, oh my zsh and adjust .zshrc, eza, fzf, git, curl, neovim, fd, fzf, zoxide
-gh, lazygit, stow, mise, ffmpeg, pnpm
-unzip, zip, waybar, cloudflared, aws cli, mongodb-compass, slack, dunst,
- firefox, obs-studio, spotify, chrome, brave, 1password, ghostty, vscode,
- vscode-insiders, postman, discord, screen shots
+Avoids:
 
- -STOW
-- Requirements
-```
+- Waybar config
+- Wlogout config
+- generic Arch desktop bootstrap
+- Wofi
+- Hyprpaper
+- PipeWire/WirePlumber setup
+- Walker
+- Hyprshot
+- font packages
+- Nautilus/Sushi install
+- Thunderbird
+- native Slack desktop package
 
+## Omarchy Hyprland customization
 
+`config/hypr/` contains Omarchy-style Lua overrides. It keeps Omarchy defaults and applies only personal tweaks for:
+
+- gaps/borders/rounding/blur
+- keyboard/input basics
+- three-finger workspace gesture
+- small custom keybinding overrides
 

@@ -5,12 +5,19 @@
 [core]
   autocrlf = false
   eol = lf
+  excludesfile = ~/.gitignore
 [credential "https://github.com"]
   helper =
-  helper = !/Users/ces/.local/bin/gh auth git-credential
+  helper = !gh auth git-credential
 [credential "https://gist.github.com"]
   helper =
-  helper = !/Users/ces/.local/bin/gh auth git-credential
+  helper = !gh auth git-credential
+[init]
+  defaultBranch = main
+[pull]
+  rebase = false
+[push]
+  autoSetupRemote = true
 [alias]
   stsu = stash save -u
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -20,5 +27,5 @@
   branches = branch --all
   whoami = config user.email
   whoaminame = config user.name
-  aliases = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#"
+  aliases = "!git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" \"#\""
   amountdiff = "!git diff --shortstat --ignore-all-space origin/master | grep -o -E '[0-9]+' | sed -n '2 p'"

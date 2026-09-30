@@ -1,33 +1,52 @@
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+command_timeout = 200
+format = "$hostname[$directory$git_branch$git_status]($style)$character"
 
-format = "$hostname[$directory$git_branch]($style)\n$character"
-
-# Inserts a blank line between shell prompts
-add_newline = false
-
-# Replace the '❯' symbol in the prompt with '➜'
 [character]
-error_symbol = "[✗](bold red)"
+error_symbol = "[✗](bold cyan)"
 success_symbol = "[❯](bold #A5D6A7)[❯](bold #FFF59D)[❯](bold #FFAB91)"
 
-# Disable the package module, hiding it from the prompt completely
+[directory]
+truncation_length = 2
+truncation_symbol = "…/"
+repo_root_style = "bold cyan"
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+format = "[$branch]($style) "
+style = "italic cyan"
+
+[git_status]
+format = "[$all_status]($style)"
+style = "cyan"
+ahead = "⇡${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+behind = "⇣${count} "
+conflicted = " "
+up_to_date = " "
+untracked = "? "
+modified = " "
+stashed = ""
+staged = ""
+renamed = ""
+deleted = ""
+
+[hostname]
+ssh_only = true
+format = "[🖥 REMOTE](bold red) "
+disabled = false
+
 [package]
 disabled = true
 
 [aws]
-format = 'on [$symbol($profile )(\($region\) )]($style)'
-style = 'bold blue'
-symbol = '🅰 '
+format = "on [$symbol($profile )(($region) )]($style)"
+style = "bold blue"
+symbol = "🅰 "
 
 [aws.region_aliases]
-us-east-1 = 'us'
-eu-central-1 = 'eu'
+us-east-1 = "us"
+eu-central-1 = "eu"
 
 [nodejs]
-format = 'via [🤖 $version](bold green) '
-
-[hostname]
-ssh_only = true
-format = "[🖥  REMOTE](bold red) "
-disabled = false
+format = "via [🤖 $version](bold green) "
