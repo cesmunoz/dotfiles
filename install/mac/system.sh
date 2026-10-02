@@ -16,6 +16,9 @@ osascript -e "tell application \"System Events\" to set picture of every desktop
 defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 30
+# Disable the bottom-right hot corner (Quick Note)
+defaults write com.apple.dock wvous-br-corner -int 1
+defaults write com.apple.dock wvous-br-modifier -int 0
 killall Dock
 
 # Finder
