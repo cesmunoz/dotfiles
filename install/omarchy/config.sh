@@ -51,5 +51,5 @@ settings.externalEditor = externalEditor;
 fs.writeFileSync(settingsPath, `${JSON.stringify(settings, null, 2)}\n`);
 NODE
 else
-  echo "node not found; skipped Pi externalEditor setting"
+  echo "node not found; skipped Pi settings update"
 fi
