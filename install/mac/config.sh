@@ -43,5 +43,5 @@ settings.externalEditor = externalEditor;
 fs.writeFileSync(settingsPath, `${JSON.stringify(settings, null, 2)}\n`);
 NODE
 else
-  gum log --level warn "node not found; skipped Pi externalEditor setting"
+  gum log --level warn "node not found; skipped Pi settings update"
 fi
