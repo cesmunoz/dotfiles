@@ -54,3 +54,6 @@ fi
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000029}]}'
 # Function keys over Function keys
 defaults write -g com.apple.keyboard.fnState -bool true
+
+defaults write com.superlogical.rex rex.client.remoteControl -bool true
+defaults write com.superlogical.rex rex.server.automatic-restart-enabled -bool true

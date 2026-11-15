@@ -108,3 +108,13 @@ source ~/.config/zsh/functions
 source ~/.config/zsh/init
 source ~/.config/zsh/envs
 [ -f ~/.config/zsh/private ] && source ~/.config/zsh/private
+
+rex_cli_dir="$HOME/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS"
+if [ -x "$rex_cli_dir/rex" ]; then
+  export PATH="$PATH:$rex_cli_dir"
+fi
+unset rex_cli_dir
+
+if [ -n "$REX_BIN_DIR" ]; then
+  export PATH="$REX_BIN_DIR:$PATH"
+fi
