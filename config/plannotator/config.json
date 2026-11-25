@@ -1,0 +1,11 @@
+{
+  "prompts": {
+    "review": {
+      "runtimes": {
+        "pi": {
+          "denied": "\n\nValidate each submitted comment against the actual code before acting. Apply confirmed changes within the authorized scope without waiting for a second instruction. For incorrect comments, explain briefly why no change is needed. If a comment is ambiguous or requires expanding the authorized scope, ask before proceeding. Address only the submitted feedback; do not review unrelated code or make unrelated changes. Run the relevant existing checks and report what changed, what was checked, and any unresolved comments. Do not commit or push."
+        }
+      }
+    }
+  }
+}
