@@ -33,7 +33,7 @@ copy_file "$REPO_DIR/config/.gitignore" "$HOME/.gitignore"
 copy_file "$REPO_DIR/config/.zshrc" "$HOME/.zshrc"
 
 mkdir -p "$HOME/.pi/agent/extensions"
-copy_file "$REPO_DIR/config/pi/agent/extensions/compact-footer.ts" "$HOME/.pi/agent/extensions/compact-footer.ts"
+copy_file "$REPO_DIR/config/pi/agent/extensions/pi-statusline.ts" "$HOME/.pi/agent/extensions/pi-statusline.ts"
 copy_file "$REPO_DIR/config/pi/agent/open-project-editor.sh" "$HOME/.pi/agent/open-project-editor.sh"
 [ -f "$HOME/.pi/agent/open-project-editor.sh" ] && chmod +x "$HOME/.pi/agent/open-project-editor.sh"
 

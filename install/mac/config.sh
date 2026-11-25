@@ -25,7 +25,7 @@ cp -R ~/dev/cm/dotfiles/config/.gitignore ~/.gitignore
 cp -R ~/dev/cm/dotfiles/config/.zshrc ~/.zshrc
 
 mkdir -p "$HOME/.pi/agent/extensions"
-cp -R "$REPO_DIR/config/pi/agent/extensions/compact-footer.ts" "$HOME/.pi/agent/extensions/compact-footer.ts"
+cp -R "$REPO_DIR/config/pi/agent/extensions/pi-statusline.ts" "$HOME/.pi/agent/extensions/pi-statusline.ts"
 cp -R "$REPO_DIR/config/pi/agent/open-project-editor.sh" "$HOME/.pi/agent/open-project-editor.sh"
 chmod +x "$HOME/.pi/agent/open-project-editor.sh"
 
